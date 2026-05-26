@@ -25,6 +25,10 @@
         .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; color: white; }
         .btn-a { background-color: #28a745; }
         .btn-b { background-color: #6c757d; }
+        /* Estilos para el checklist de materiales */
+        .checkbox-list { list-style: none; padding-left: 0; }
+        .checkbox-list li { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .checkbox-list li::before { content: '☐'; font-size: 1.2rem; margin-right: 10px; color: var(--primary-light); line-height: 1.2; }
     </style>
 </head>
 <body>
@@ -34,42 +38,60 @@
             <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">Estudio de Agentes Virtuales (Sesión Única)</p>
             
             <div class="metadata-box">
-                <p><strong>Estudio:</strong> Evaluación de Consultas con RAG, Usabilidad y Confianza en Agentes Virtuales</p>
+                <p><strong>Estudio:</strong> Impacto de Agentes Virtuales en la Usabilidad y Confianza de Sistemas RAG</p>
                 <p><strong>Código de Proyecto:</strong> A42781</p>
                 <p><strong>Investigador:</strong> Marco Antonio Jiménez Gutiérrez</p>
                 <p><strong>Unidad Ejecutora:</strong> Diseño de Pruebas de Concepto en HCI (PF3311)</p>
             </div>
 
-            <h2>1. Inducción y Bienvenida</h2>
+            <h2>1. Preparación del Entorno</h2>
+            <h3>1.1 Checklist de Materiales</h3>
+            <ul class="checkbox-list">
+                <li>Computadora de laboratorio configurada y probada (Navegador con WebGL y Web Speech API habilitados).</li>
+                <li>Audífonos desinfectados (indispensables para que el participante escuche la voz del agente virtual).</li>
+                <li>Dispositivo de grabación de audio (con suficiente batería y espacio de almacenamiento) para la entrevista cualitativa final.</li>
+                <li>Tabla de asignación aleatoria (Grupo A / Grupo B).</li>
+                <li>Enlaces pre-cargados a los cuestionarios de evaluación post-interacción (SUS, Trust in Automation, Godspeed).</li>
+                <li>Bitácora del investigador para anotar los ID de usuario generados.</li>
+            </ul>
 
-            <h3>1.1 Consentimiento Informado</h3>
+            <h2>2. Inducción y Bienvenida</h2>
+
+            <h3>2.1 Consentimiento Informado</h3>
             <div class="consent-box">
                 <p><strong>Declaración de Consentimiento:</strong></p>
-                <p>Este estudio busca evaluar la interacción entre humanos y sistemas computacionales. Su participación consistirá en interactuar con una interfaz para completar una tarea de consulta documental. Los datos recopilados serán estrictamente confidenciales. Se generará un ID de usuario anónimo y sus datos no estarán vinculados a su identidad personal. Usted es libre de retirar su participación en cualquier momento sin ninguna consecuencia.</p>
-                <label style="font-weight: bold; cursor: pointer;">
+                <p>Usted ha sido invitado a participar en un estudio de investigación académica para evaluar la usabilidad, carga cognitiva y confianza en diferentes interfaces de consulta documental. Por favor, lea detenidamente la siguiente información:</p>
+                <ul style="margin-bottom: 15px; padding-left: 20px;">
+                    <li><strong>Propósito y Procedimiento:</strong> El estudio consiste en utilizar un sistema computacional para buscar información en un expediente de Reglamentos Estudiantiles. Luego, completará unos breves cuestionarios y participará en una corta entrevista. El tiempo estimado es de 15 a 20 minutos.</li>
+                    <li><strong>Grabación de Audio:</strong> La entrevista final será grabada en audio exclusivamente para facilitar su posterior transcripción y análisis cualitativo. Nadie ajeno a la investigación principal tendrá acceso a esta grabación.</li>
+                    <li><strong>Riesgos y Beneficios:</strong> La participación no supone ningún riesgo físico, psicológico o emocional más allá del uso habitual de una computadora. Aunque no recibirá compensación económica ni un beneficio directo, sus respuestas contribuirán activamente al diseño de mejores interfaces de usuario en el futuro.</li>
+                    <li><strong>Confidencialidad:</strong> Su identidad se mantendrá en absoluto anonimato. Se le asignará un código (ID) y sus datos demográficos, respuestas de encuestas y grabaciones no estarán vinculados a su nombre. Todos los archivos se almacenarán de forma cifrada y serán destruidos al finalizar los reportes del curso.</li>
+                    <li><strong>Participación Voluntaria:</strong> Su participación es completamente libre y voluntaria. Usted puede negarse a responder cualquier pregunta o retirarse del estudio en cualquier momento, sin penalización y sin necesidad de dar explicaciones.</li>
+                </ul>
+                <label style="font-weight: bold; cursor: pointer; display: block; margin-top: 10px;">
                     <input type="checkbox" id="aceptoConsentimiento" required> 
-                    He leído la información y acepto participar voluntariamente en este estudio.
+                    He leído y comprendido la información anterior, acepto la grabación de audio de la entrevista y consiento participar voluntariamente en este estudio.
                 </label>
             </div>
 
-            <h3>1.2 Asignación al Grupo de Estudio</h3>
+            <h3>2.2 Asignación al Grupo de Estudio</h3>
             <p><em>(Uso exclusivo del investigador)</em> Seleccione la condición a evaluar según la tabla de asignación aleatoria (ambos grupos consultarán el mismo expediente de Reglamentos Estudiantiles):</p>
             <div class="btn-group">
                 <button class="btn btn-a" onclick="alert('Iniciando: Grupo A (Agente 3D - Reglamentos Estudiantiles)')">Cargar Grupo A (Agente 3D)</button>
                 <button class="btn btn-b" onclick="alert('Iniciando: Grupo B (Chat de Texto - Reglamentos Estudiantiles)')">Cargar Grupo B (Chat de Texto)</button>
             </div>
 
-            <h2>2. Fase de Interacción en Laboratorio</h2>
+            <h2>3. Fase de Interacción en Laboratorio</h2>
 
-            <h3>2.1 Instrucciones de la Tarea</h3>
+            <h3>3.1 Instrucciones de la Tarea</h3>
             <p><strong>Investigador:</strong> Lea textualmente la siguiente instrucción al participante para evitar sesgos de inducción (priming):</p>
             <div class="quote">
                 "Frente a usted tiene un sistema computacional. Su objetivo es utilizarlo para consultar información sobre los reglamentos estudiantiles. Por favor, navegue por la interfaz e interactúe con el sistema hasta que considere que la tarea está completada o hasta que reciba un mensaje de confirmación final. Trate de actuar con naturalidad."
             </div>
 
-            <h2>3. Cierre del Estudio y Recolección de Datos</h2>
+            <h2>4. Cierre del Estudio y Recolección de Datos</h2>
 
-            <h3>3.1 Cuestionarios Post-Interacción</h3>
+            <h3>4.1 Cuestionarios Post-Interacción</h3>
             <p><strong>Investigador:</strong></p>
             <div class="quote">"¡Excelente! Ahora, le pediré que llene esta serie de cuestionarios cortos sobre su experiencia utilizando el sistema."</div>
             <p>Solicite al participante que complete los siguientes instrumentos estandarizados utilizando su ID anónimo:</p>
@@ -79,7 +101,7 @@
                 <li><a href="#">Cuestionario de Percepción de Naturalidad (Godspeed)</a></li>
             </ul>
 
-            <h3>3.2 Entrevista Cualitativa Breve</h3>
+            <h3>4.2 Entrevista Cualitativa Breve</h3>
             <p>Para profundizar en la percepción del usuario, realice una entrevista estructurada breve. Solicite permiso para grabar el audio exclusivamente con fines de transcripción.</p>
             <div class="metadata-box">
                 <p><strong>Preguntas de apreciación cualitativa:</strong></p>
@@ -91,11 +113,11 @@
                 </ul>
             </div>
 
-            <h3>3.3 Despedida</h3>
+            <h3>4.3 Despedida</h3>
             <p>Detenga la grabación y agradezca profundamente su tiempo y participación.</p>
             <div class="quote">"Muchas gracias por ayudarnos a generar conocimiento en esta área. Su aporte ha sido sumamente valioso. ¡Que tenga un excelente día!"</div>
 
-            <h2>4. Gestión Final de Datos y Respaldo (Plan de Anonimización)</h2>
+            <h2>5. Gestión Final de Datos y Respaldo (Plan de Anonimización)</h2>
             <p>Inmediatamente después de que el participante abandone el entorno de prueba, proceda con el siguiente protocolo:</p>
             <div class="metadata-box">
                 <ul>
