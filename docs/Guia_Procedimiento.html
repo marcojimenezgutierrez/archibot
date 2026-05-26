@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo de Evaluación - Prueba de Concepto HCI</title>
+    <title>Guía de Procedimiento del Investigador - HCI</title>
     <style>
         :root { --primary: #0F3B82; --primary-light: #2A5BAA; --bg-body: #F4F7F6; --bg-card: #FFFFFF; --text-main: #333333; --text-muted: #666666; --border-color: #E2E8F0; --radius: 8px; --shadow: 0 4px 6px rgba(0,0,0,0.05); }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,10 +20,8 @@
         .metadata-box p { margin-bottom: 5px; font-size: 0.95rem; }
         .metadata-box strong { color: var(--primary); }
         .quote { background-color: #F1F5F9; font-style: italic; padding: 15px; border-radius: var(--radius); margin: 15px 0; color: #475569; }
-        
-        /* Nuevos estilos agregados para los requerimientos */
         .consent-box { background-color: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: var(--radius); margin-bottom: 20px; }
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; color: white; }
         .btn-a { background-color: #28a745; }
         .btn-b { background-color: #6c757d; }
@@ -32,67 +30,81 @@
 <body>
     <div class="container">
         <div class="card">
-            <h1>Protocolo Oficial de Experimento: Prueba de Concepto HCI</h1>
+            <h1>Guía de Procedimiento del Investigador</h1>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">Estudio de Agentes Virtuales (Sesión Única)</p>
             
-            <!-- Identificación formal del estudio -->
             <div class="metadata-box">
-                <p><strong>Estudio:</strong> Evaluación de Carga Cognitiva, Usabilidad y Confianza en Agentes Virtuales</p>
+                <p><strong>Estudio:</strong> Evaluación de Consultas con RAG, Usabilidad y Confianza en Agentes Virtuales</p>
                 <p><strong>Código de Proyecto:</strong> A42781</p>
-                <p><strong>Investigador(es):</strong> Marco Antonio Jiménez Gutiérrez</p>
+                <p><strong>Investigador:</strong> Marco Antonio Jiménez Gutiérrez</p>
                 <p><strong>Unidad Ejecutora:</strong> Diseño de Pruebas de Concepto en HCI (PF3311)</p>
             </div>
 
             <h2>1. Inducción y Bienvenida</h2>
 
-            <!-- Consentimiento informado adaptado y pregunta de aceptación obligatoria -->
             <h3>1.1 Consentimiento Informado</h3>
             <div class="consent-box">
                 <p><strong>Declaración de Consentimiento:</strong></p>
-                <p>Este estudio busca evaluar la interacción entre humanos y sistemas computacionales. Su participación consistirá en interactuar con una interfaz para completar una tarea específica. Los datos recopilados serán estrictamente confidenciales. Se generará un ID de usuario anónimo y sus datos no estarán vinculados a su identidad personal. Usted es libre de retirar su participación en cualquier momento sin ninguna consecuencia.</p>
+                <p>Este estudio busca evaluar la interacción entre humanos y sistemas computacionales. Su participación consistirá en interactuar con una interfaz para completar una tarea de consulta documental. Los datos recopilados serán estrictamente confidenciales. Se generará un ID de usuario anónimo y sus datos no estarán vinculados a su identidad personal. Usted es libre de retirar su participación en cualquier momento sin ninguna consecuencia.</p>
                 <label style="font-weight: bold; cursor: pointer;">
                     <input type="checkbox" id="aceptoConsentimiento" required> 
                     He leído la información y acepto participar voluntariamente en este estudio.
                 </label>
             </div>
 
-            <!-- Carga de la condición respectiva -->
             <h3>1.2 Asignación al Grupo de Estudio</h3>
-            <p><em>(Uso exclusivo del investigador)</em> Seleccione la condición a evaluar según la tabla de asignación aleatoria:</p>
+            <p><em>(Uso exclusivo del investigador)</em> Seleccione la condición a evaluar según la tabla de asignación aleatoria (ambos grupos consultarán el mismo expediente de Reglamentos Estudiantiles):</p>
             <div class="btn-group">
-                <button class="btn btn-a" onclick="alert('Iniciando Interfaz: Condición Experimental A (Agente 3D)')">Cargar Grupo A (Experimental)</button>
-                <button class="btn btn-b" onclick="alert('Iniciando Interfaz: Condición Control B (Chatbot Base)')">Cargar Grupo B (Control)</button>
+                <button class="btn btn-a" onclick="alert('Iniciando: Grupo A (Agente 3D - Reglamentos Estudiantiles)')">Cargar Grupo A (Agente 3D)</button>
+                <button class="btn btn-b" onclick="alert('Iniciando: Grupo B (Chat de Texto - Reglamentos Estudiantiles)')">Cargar Grupo B (Chat de Texto)</button>
             </div>
 
             <h2>2. Fase de Interacción en Laboratorio</h2>
 
-            <!-- Instrucciones neutras y objetivas -->
             <h3>2.1 Instrucciones de la Tarea</h3>
             <p><strong>Investigador:</strong> Lea textualmente la siguiente instrucción al participante para evitar sesgos de inducción (priming):</p>
             <div class="quote">
-                "Frente a usted tiene un sistema computacional. Su objetivo es utilizarlo para consultar información sobre un expediente documental. Por favor, navegue por la interfaz e interactúe con el sistema hasta que considere que la tarea está completada o hasta que reciba un mensaje de confirmación final. Trate de actuar con naturalidad."
+                "Frente a usted tiene un sistema computacional. Su objetivo es utilizarlo para consultar información sobre los reglamentos estudiantiles. Por favor, navegue por la interfaz e interactúe con el sistema hasta que considere que la tarea está completada o hasta que reciba un mensaje de confirmación final. Trate de actuar con naturalidad."
             </div>
 
             <h2>3. Cierre del Estudio y Recolección de Datos</h2>
 
-            <!-- Listado de cuestionarios post-interacción -->
             <h3>3.1 Cuestionarios Post-Interacción</h3>
+            <p><strong>Investigador:</strong></p>
+            <div class="quote">"¡Excelente! Ahora, le pediré que llene esta serie de cuestionarios cortos sobre su experiencia utilizando el sistema."</div>
             <p>Solicite al participante que complete los siguientes instrumentos estandarizados utilizando su ID anónimo:</p>
             <ul>
-                <li><a href="#">Cuestionario de Usabilidad (System Usability Scale - SUS) y Retención de Información</a></li>
+                <li><a href="#">Cuestionario de Usabilidad (SUS) y Retención de Información</a></li>
                 <li><a href="#">Cuestionario de Confianza (Trust in Automated Systems Questionnaire - Jian et al.)</a></li>
                 <li><a href="#">Cuestionario de Percepción de Naturalidad (Godspeed)</a></li>
             </ul>
 
-            <!-- Plan de anonimización y resguardo de logs -->
-            <h2>4. Plan de Gestión y Anonimización de Datos</h2>
+            <h3>3.2 Entrevista Cualitativa Breve</h3>
+            <p>Para profundizar en la percepción del usuario, realice una entrevista estructurada breve. Solicite permiso para grabar el audio exclusivamente con fines de transcripción.</p>
             <div class="metadata-box">
+                <p><strong>Preguntas de apreciación cualitativa:</strong></p>
                 <ul>
-                    <li><strong>Asignación de ID:</strong> Cada participante será registrado bajo un código alfanumérico (Ej. P-001) para desvincular sus respuestas de su identidad real.</li>
-                    <li><strong>Resguardo de Logs de Conversación:</strong> Las transcripciones y registros (logs) extraídos de la Prueba de Concepto (PoC) serán exportados y almacenados en un servidor local cifrado, accesibles únicamente por el investigador principal.</li>
-                    <li><strong>Eliminación de Datos:</strong> Una vez finalizado el análisis para el curso, los datos crudos y audios (si los hubiera) serán destruidos permanentemente.</li>
+                    <li>"En términos generales, ¿cómo describiría su experiencia consultando el expediente el día de hoy?"</li>
+                    <li>"¿Hubo algún momento o detalle que le gustara especialmente del sistema?"</li>
+                    <li>"¿Hubo algún aspecto de la interfaz que le pareciera extraño, incómodo o frustrante?"</li>
+                    <li>"¿Qué le mejoraría a este sistema para futuras consultas documentales?"</li>
                 </ul>
             </div>
 
+            <h3>3.3 Despedida</h3>
+            <p>Detenga la grabación y agradezca profundamente su tiempo y participación.</p>
+            <div class="quote">"Muchas gracias por ayudarnos a generar conocimiento en esta área. Su aporte ha sido sumamente valioso. ¡Que tenga un excelente día!"</div>
+
+            <h2>4. Gestión Final de Datos y Respaldo (Plan de Anonimización)</h2>
+            <p>Inmediatamente después de que el participante abandone el entorno de prueba, proceda con el siguiente protocolo:</p>
+            <div class="metadata-box">
+                <ul>
+                    <li><strong>Asignación y Anonimización de ID:</strong> Verifique que cada participante esté registrado bajo un código alfanumérico (Ej. P-001) desvinculado de su nombre legal o identidad real. Confirme que todos los cuestionarios respondidos utilicen únicamente este ID.</li>
+                    <li><strong>Almacenamiento Seguro:</strong> Guarde el archivo de audio de la entrevista. Exporte las transcripciones y registros de interacción (logs) de la Prueba de Concepto (PoC) asegurándose de que se almacenen en un servidor local cifrado o una carpeta protegida con contraseña, accesibles únicamente por el investigador principal.</li>
+                    <li><strong>Limpieza de Equipo:</strong> Si el experimento fue presencial, desinfecte el equipo (teclado, ratón, audífonos) y prepare el entorno para el siguiente participante. Borre cualquier rastro de la sesión anterior en el navegador web.</li>
+                    <li><strong>Destrucción de Datos Sensibles:</strong> Una vez finalizado el análisis de datos para el curso, comprométase a destruir permanentemente los datos crudos y audios originales para mantener el rigor ético.</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
