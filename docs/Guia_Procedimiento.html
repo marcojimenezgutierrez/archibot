@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Evaluación - Prueba de Concepto HCI</title>
+    <style>
+        :root { --primary: #0F3B82; --primary-light: #2A5BAA; --bg-body: #F4F7F6; --bg-card: #FFFFFF; --text-main: #333333; --text-muted: #666666; --border-color: #E2E8F0; --radius: 8px; --shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 40px 20px; display: flex; justify-content: center; }
+        .container { max-width: 800px; width: 100%; }
+        .card { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; border: 1px solid var(--border-color); }
+        h1 { color: var(--primary); font-size: 1.8rem; margin-bottom: 8px; border-bottom: 2px solid var(--primary-light); padding-bottom: 10px; }
+        h2 { color: var(--primary-light); font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
+        h3 { color: var(--text-main); font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        ul { margin-bottom: 15px; padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .metadata-box { background-color: #F8FAFC; border-left: 4px solid var(--primary); padding: 15px; margin-bottom: 30px; border-radius: 0 var(--radius) var(--radius) 0; }
+        .metadata-box p { margin-bottom: 5px; font-size: 0.95rem; }
+        .metadata-box strong { color: var(--primary); }
+        .quote { background-color: #F1F5F9; font-style: italic; padding: 15px; border-radius: var(--radius); margin: 15px 0; color: #475569; }
+        
+        /* Nuevos estilos agregados para los requerimientos */
+        .consent-box { background-color: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: var(--radius); margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; margin-bottom: 20px; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; color: white; }
+        .btn-a { background-color: #28a745; }
+        .btn-b { background-color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Protocolo Oficial de Experimento: Prueba de Concepto HCI</h1>
+            
+            <!-- Identificación formal del estudio -->
+            <div class="metadata-box">
+                <p><strong>Estudio:</strong> Evaluación de Carga Cognitiva, Usabilidad y Confianza en Agentes Virtuales</p>
+                <p><strong>Código de Proyecto:</strong> A42781</p>
+                <p><strong>Investigador(es):</strong> Marco Antonio Jiménez Gutiérrez</p>
+                <p><strong>Unidad Ejecutora:</strong> Diseño de Pruebas de Concepto en HCI (PF3311)</p>
+            </div>
+
+            <h2>1. Inducción y Bienvenida</h2>
+
+            <!-- Consentimiento informado adaptado y pregunta de aceptación obligatoria -->
+            <h3>1.1 Consentimiento Informado</h3>
+            <div class="consent-box">
+                <p><strong>Declaración de Consentimiento:</strong></p>
+                <p>Este estudio busca evaluar la interacción entre humanos y sistemas computacionales. Su participación consistirá en interactuar con una interfaz para completar una tarea específica. Los datos recopilados serán estrictamente confidenciales. Se generará un ID de usuario anónimo y sus datos no estarán vinculados a su identidad personal. Usted es libre de retirar su participación en cualquier momento sin ninguna consecuencia.</p>
+                <label style="font-weight: bold; cursor: pointer;">
+                    <input type="checkbox" id="aceptoConsentimiento" required> 
+                    He leído la información y acepto participar voluntariamente en este estudio.
+                </label>
+            </div>
+
+            <!-- Carga de la condición respectiva -->
+            <h3>1.2 Asignación al Grupo de Estudio</h3>
+            <p><em>(Uso exclusivo del investigador)</em> Seleccione la condición a evaluar según la tabla de asignación aleatoria:</p>
+            <div class="btn-group">
+                <button class="btn btn-a" onclick="alert('Iniciando Interfaz: Condición Experimental A (Agente 3D)')">Cargar Grupo A (Experimental)</button>
+                <button class="btn btn-b" onclick="alert('Iniciando Interfaz: Condición Control B (Chatbot Base)')">Cargar Grupo B (Control)</button>
+            </div>
+
+            <h2>2. Fase de Interacción en Laboratorio</h2>
+
+            <!-- Instrucciones neutras y objetivas -->
+            <h3>2.1 Instrucciones de la Tarea</h3>
+            <p><strong>Investigador:</strong> Lea textualmente la siguiente instrucción al participante para evitar sesgos de inducción (priming):</p>
+            <div class="quote">
+                "Frente a usted tiene un sistema computacional. Su objetivo es utilizarlo para consultar información sobre un expediente documental. Por favor, navegue por la interfaz e interactúe con el sistema hasta que considere que la tarea está completada o hasta que reciba un mensaje de confirmación final. Trate de actuar con naturalidad."
+            </div>
+
+            <h2>3. Cierre del Estudio y Recolección de Datos</h2>
+
+            <!-- Listado de cuestionarios post-interacción -->
+            <h3>3.1 Cuestionarios Post-Interacción</h3>
+            <p>Solicite al participante que complete los siguientes instrumentos estandarizados utilizando su ID anónimo:</p>
+            <ul>
+                <li><a href="#">Cuestionario de Usabilidad (System Usability Scale - SUS) y Retención de Información</a></li>
+                <li><a href="#">Cuestionario de Confianza (Trust in Automated Systems Questionnaire - Jian et al.)</a></li>
+                <li><a href="#">Cuestionario de Percepción de Naturalidad (Godspeed)</a></li>
+            </ul>
+
+            <!-- Plan de anonimización y resguardo de logs -->
+            <h2>4. Plan de Gestión y Anonimización de Datos</h2>
+            <div class="metadata-box">
+                <ul>
+                    <li><strong>Asignación de ID:</strong> Cada participante será registrado bajo un código alfanumérico (Ej. P-001) para desvincular sus respuestas de su identidad real.</li>
+                    <li><strong>Resguardo de Logs de Conversación:</strong> Las transcripciones y registros (logs) extraídos de la Prueba de Concepto (PoC) serán exportados y almacenados en un servidor local cifrado, accesibles únicamente por el investigador principal.</li>
+                    <li><strong>Eliminación de Datos:</strong> Una vez finalizado el análisis para el curso, los datos crudos y audios (si los hubiera) serán destruidos permanentemente.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
