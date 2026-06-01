@@ -1,0 +1,191 @@
+/*
+ * arcaTTSController.css
+ *
+ * Styling for the arcaTTSController component.  This stylesheet defines
+ * variables and layout rules for both dark and light themes.  All
+ * class names are prefixed with `arca-tts` to minimise collisions
+ * with host page styles.  Adjust the colour variables below to
+ * integrate the component into your site's branding.
+ */
+
+/* Shared base styles */
+.arca-tts {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--tts-color-text);
+    background-color: var(--tts-color-bg);
+    border: 1px solid var(--tts-color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-sizing: border-box;
+    max-width: 360px;
+    min-width: 280px;
+    /* Default highlight colour; overridden via inline style or CSS variable on root */
+    --tts-highlight-color: #fff3a6;
+}
+
+/* Floating window base */
+.arca-tts-float {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    cursor: default;
+}
+
+/* Docked variant does not cast a shadow */
+.arca-tts-docked {
+    width: 100%;
+    box-shadow: none;
+}
+
+/* Header bar */
+.arca-tts-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    background-color: var(--tts-color-header-bg);
+    border-bottom: 1px solid var(--tts-color-border);
+    user-select: none;
+}
+
+/* Voice label in header */
+.arca-tts-voice-label {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+/* Buttons (play/pause, stop, advanced toggle) */
+.arca-tts-btn {
+    appearance: none;
+    border: none;
+    background: var(--tts-color-button-bg);
+    color: var(--tts-color-button-fg);
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    transition: background-color 0.15s ease;
+}
+
+    .arca-tts-btn:hover {
+        background: var(--tts-color-button-hover);
+    }
+
+    .arca-tts-btn:active {
+        background: var(--tts-color-button-active);
+    }
+
+/* Advanced panel */
+.arca-tts-adv {
+    padding: 8px;
+    background-color: var(--tts-color-panel-bg);
+}
+
+/* Form field container */
+.arca-tts-field {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .arca-tts-field label {
+        margin-bottom: 4px;
+        font-size: 12px;
+        color: var(--tts-color-muted);
+    }
+
+/* Select inputs */
+.arca-tts-select {
+    appearance: none;
+    width: 100%;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--tts-color-border);
+    background-color: var(--tts-color-input-bg);
+    color: var(--tts-color-text);
+    font-size: 13px;
+}
+
+/* Range sliders */
+.arca-tts-range {
+    width: 100%;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Theme dependent variables (dark) */
+.arca-tts[data-theme="dark"] {
+    --tts-color-bg: #0b0f19;
+    --tts-color-panel-bg: #111933;
+    --tts-color-header-bg: #0f1525;
+    --tts-color-border: #1c2942;
+    --tts-color-text: #e6e6e6;
+    --tts-color-muted: #8892b0;
+    --tts-color-button-bg: #1f2a47;
+    --tts-color-button-fg: #e6e6e6;
+    --tts-color-button-hover: #293860;
+    --tts-color-button-active: #1a2748;
+    --tts-color-input-bg: #141c31;
+}
+
+/* Theme dependent variables (light) */
+.arca-tts[data-theme="light"] {
+    --tts-color-bg: #f7f9fc;
+    --tts-color-panel-bg: #ffffff;
+    --tts-color-header-bg: #e9eef8;
+    --tts-color-border: #ccd6e6;
+    --tts-color-text: #1a2338;
+    --tts-color-muted: #5f6c89;
+    --tts-color-button-bg: #e2e8f7;
+    --tts-color-button-fg: #1a2338;
+    --tts-color-button-hover: #ccd6e6;
+    --tts-color-button-active: #bfc9de;
+    --tts-color-input-bg: #ffffff;
+}
+
+/* Highlight span used when reading from an element (configured in JS) */
+.arca-tts .tts-current {
+    background-color: var(--tts-highlight-color);
+    border-radius: 4px;
+    padding: 0 2px;
+}
+
+/* Text-to-speech panel skin */
+.arca-tts {
+    border-radius: 14px;
+    border-color: #b9cee1;
+    box-shadow: 0 12px 28px rgba(8, 35, 64, 0.14);
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+}
+
+.arca-tts[data-theme="dark"] {
+    --tts-color-bg: #14324b;
+    --tts-color-panel-bg: #1b4161;
+    --tts-color-header-bg: #13334c;
+    --tts-color-border: #2d597b;
+    --tts-color-text: #eef7ff;
+    --tts-color-muted: #bcd3e6;
+    --tts-color-button-bg: #245478;
+    --tts-color-button-fg: #f3f9ff;
+    --tts-color-button-hover: #2c638c;
+    --tts-color-button-active: #1f4d6f;
+    --tts-color-input-bg: #12314a;
+}
+
+.arca-tts[data-theme="light"] {
+    --tts-color-bg: #f8fcff;
+    --tts-color-panel-bg: #ffffff;
+    --tts-color-header-bg: #eef8ff;
+    --tts-color-border: #c6d9ea;
+    --tts-color-text: #15314a;
+    --tts-color-muted: #56708c;
+    --tts-color-button-bg: #e4f1fb;
+    --tts-color-button-fg: #15314a;
+    --tts-color-button-hover: #d4e8f7;
+    --tts-color-button-active: #c6def0;
+    --tts-color-input-bg: #ffffff;
+}

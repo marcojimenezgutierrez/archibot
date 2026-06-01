@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo — Agente Conversacional 3D (PF-3311)</title>
+
+    <!-- Import map para los ES Modules de Three.js + @pixiv/three-vrm (igual que en producción) -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+            "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3/lib/three-vrm.module.min.js"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/arcaTTSController.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+</head>
+<body>
+    <!-- Fondo (queda cubierto por el panel del RAG al montarse) -->
+    <main style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;color:#475569;">
+        <div>
+            <h1 style="margin:0;font-weight:700;">Agente Conversacional 3D — PF-3311</h1>
+            <p>Cargando demo…</p>
+        </div>
+    </main>
+
+    <!-- jQuery (clásico) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <!-- PDF.js (UMD: expone window.pdfjsLib) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        if (window.pdfjsLib) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+                'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+
+    <!-- Componentes de voz (se auto-registran en window) -->
+    <script src="js/records/arcaSTTCapture.js"></script>
+    <script src="js/records/arcaTTSController.js"></script>
+
+    <!-- UI del RAG conversacional (define window.arcangelRAGLoader; importa avatar.js como módulo) -->
+    <script src="js/records/arcangelRAG.js"></script>
+
+    <!-- Arranque del demo: stubs + mock del RAG + montaje del panel -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
