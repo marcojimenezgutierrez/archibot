@@ -8,17 +8,19 @@ Desarrollar un prototipo de agente virtual inteligente que permita consultar inf
 
 El proyecto se enfoca en estudiar principalmente:
 
-- La confianza percibida por el usuario ante las respuestas generadas.
-- La empatía o cercanía percibida durante la interacción.
-- La preferencia del usuario entre una interfaz textual y un agente virtual corporizado.
-- La influencia de la apariencia visual del agente en la experiencia de consulta documental.
+- **RQ1:** Confianza percibida en la respuesta factual del sistema, comparando el Agente Virtual Corporizado (AVC) frente a una interfaz puramente textual.
+- **RQ2:** Naturalidad percibida e inteligencia percibida del agente en tareas de síntesis documental extendida.
+- **RQ3:** Nivel de retención de información por parte del usuario y usabilidad general percibida (SUS).
 
 ## Estructura del repositorio
 
 ```text
 archibot/
+├── demo/
+│   └── Demostración de la funcionalidad del sistema (ejecutable tipo Mago de Oz).
+│
 ├── src/
-│   └── Código fuente del prototipo desarrollado en Unity.
+│   └── Código fuente del prototipo frontend web y backend RAG, es privado.
 │
 └── docs/
     └── Documentación del proyecto, diseño, metodología, instrumentos y resultados.
@@ -26,27 +28,29 @@ archibot/
 
 ## Carpetas principales
 
+### `demo/`
+
+Se puede correr esta carpeta para demostrar la funcionalidad interactiva del agente en un formato de simulación tipo "Mago de Oz".
+
 ### `src/`
 
-Contendrá el código fuente del agente virtual desarrollado en Unity, incluyendo escenas, scripts, componentes de interacción, configuración WebGL y elementos necesarios para la integración con los servicios de consulta documental.
+El código del RAG es privado no se publicará acá, solamente la interación del VRM
 
 ### `docs/`
 
 Contendrá la documentación académica y técnica del proyecto, incluyendo la descripción del problema, objetivos, preguntas de investigación, arquitectura técnica, metodología de evaluación, instrumentos de recolección de datos y resultados del estudio.
 
-## Tecnologías previstas
+## Tecnologías empleadas
 
-- Unity
-- WebGL
-- RAG
-- Modelos de lenguaje de gran tamaño (LLM)
-- Servicios de consulta documental mediante API
-- Síntesis de voz del navegador para reducir latencia
-- Backend intermedio para gestionar consultas y proteger credenciales
+- **Frontend de renderizado:** Three.js + `@pixiv/three-vrm` (integrado en navegador web, eliminando dependencias de Unity).
+- **Pipeline RAG backend:** ASP.NET + Vector Store (Postgres + PGVector) + OpenAI GPT-4o para recuperación semántica y generación.
+- **Síntesis de voz (TTS):** Web Speech API (con *lip sync* simulado vía eventos de `SpeechSynthesisUtterance`).
+- **Reconocimiento de voz (STT):** Captura nativa web (ArcaSTTCapture).
+- **Integración:** Sistema empaquetado como módulo de la plataforma Arca.Xplore.
 
 ## Estado del proyecto
 
-Proyecto en fase de diseño y desarrollo inicial.
+Prototipo funcional actualmente en operación. En preparación para estudio piloto con usuarios expertos.
 
 ## Licencia
 
