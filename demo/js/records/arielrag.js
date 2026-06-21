@@ -1,6 +1,6 @@
-window.arcangelRAGLoader = (jQuery, kendo) => {
-    // Namespace interno del ArcangelRAG
-    window.ArcangelRAG = (function ($, kendo) {
+window.arielRAGLoader = (jQuery, kendo) => {
+    // Namespace interno del ArielRAG
+    window.ArielRAG = (function ($, kendo) {
         // Estado privado
         let _mounted = false;
         let _pdf = null;               // PDFDocumentProxy
@@ -22,10 +22,10 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
         let _greetingPending = false;    // Locución del saludo en curso de confirmación
 
         // ===== Avatar seleccionado y voz asociada =====
-        let _selectedAvatarUrl = '/models/ArcaXplore-F.vrm';
+        let _selectedAvatarUrl = '/models/Ariel-F.vrm';
         const AVATAR_VOICES = {
-            '/models/ArcaXplore-M.vrm': { gender: 'male',   pitch: 0.9 },
-            '/models/ArcaXplore-F.vrm': { gender: 'female', pitch: 1.12 },
+            '/models/Ariel-M.vrm': { gender: 'male',   pitch: 0.9 },
+            '/models/Ariel-F.vrm': { gender: 'female', pitch: 1.12 },
         };
         const VOICE_HINTS = {
             female: /sabina|helena|laura|m[oó]nica|paulina|elvira|google espa|female|mujer/i,
@@ -135,12 +135,12 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
 
         // ===== Utilidades =====
         function _ensurePanelMounted(base64Pdf, title) {
-            if ($("#arcangelRagPanel").length) {
-                if ($("#arcangelRagPanel").hasClass("arcangel-rag-panel")) {
-                    $("#arcangelRagPanel").appendTo(document.body).addClass("arcangel-panel-active");
+            if ($("#arielRagPanel").length) {
+                if ($("#arielRagPanel").hasClass("ariel-rag-panel")) {
+                    $("#arielRagPanel").appendTo(document.body).addClass("ariel-panel-active");
                     return;
                 }
-                $("#arcangelRagPanel").remove();
+                $("#arielRagPanel").remove();
             }
 
             const host = document.body;
@@ -151,7 +151,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
 
             const panelHtml = `
                   <style>
-                    #arcangelRagPanel .arcangel-grid-3-col {
+                    #arielRagPanel .ariel-grid-3-col {
                         display: grid;
                         /* grid-template-columns lo gestiona aplicarLayout() según la condición A/B */
                         grid-template-columns: 65% 35% 0%;
@@ -160,10 +160,10 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                     }
                     /* Anclar cada columna a su pista para que ocultar una (display:none)
                        NO desplace a las demás dentro del grid (Condición B/A). */
-                    #arcangelRagPanel .doc-wrap   { grid-column: 1; min-width: 0; overflow: hidden; }
-                    #arcangelRagPanel #avatar-wrap { grid-column: 2; min-width: 0; overflow: hidden; }
-                    #arcangelRagPanel #chat-wrap  { grid-column: 3; min-width: 0; overflow: hidden; }
-                    #arcangelRagPanel #btn-toggle-modo {
+                    #arielRagPanel .doc-wrap   { grid-column: 1; min-width: 0; overflow: hidden; }
+                    #arielRagPanel #avatar-wrap { grid-column: 2; min-width: 0; overflow: hidden; }
+                    #arielRagPanel #chat-wrap  { grid-column: 3; min-width: 0; overflow: hidden; }
+                    #arielRagPanel #btn-toggle-modo {
                         position: absolute;
                         bottom: 56px;          /* Tarea 2: abajo a la derecha, apilado sobre el botón de chat (ya no tapa #avatarSelector) */
                         right: 14px;
@@ -178,13 +178,13 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         outline: none;
                         opacity: 0.85;
                     }
-                    #arcangelRagPanel #btn-toggle-modo.modo-activo {
+                    #arielRagPanel #btn-toggle-modo.modo-activo {
                         background: #2563eb;
                         color: #fff;
                         border-color: #2563eb;
                     }
                     /* Botón secundario para abrir/cerrar el chat de texto (esquina inferior derecha) */
-                    #arcangelRagPanel #btn-toggle-chat {
+                    #arielRagPanel #btn-toggle-chat {
                         position: absolute;
                         bottom: 16px;
                         right: 14px;
@@ -204,10 +204,10 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         white-space: nowrap;
                         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
                     }
-                    #arcangelRagPanel #btn-toggle-chat:hover { background: #2563eb; color: #fff; }
+                    #arielRagPanel #btn-toggle-chat:hover { background: #2563eb; color: #fff; }
 
                     /* ===== Micrófono del avatar (Condición A): FAB + indicador "escuchando" ===== */
-                    #arcangelRagPanel #avatar-mic-dock {
+                    #arielRagPanel #avatar-mic-dock {
                         position: absolute;
                         bottom: 18px;
                         left: 50%;
@@ -218,7 +218,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         align-items: center;
                         gap: 6px;
                     }
-                    #arcangelRagPanel #btn-avatar-mic {
+                    #arielRagPanel #btn-avatar-mic {
                         position: relative;
                         width: 62px;
                         height: 62px;
@@ -233,9 +233,9 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
                         transition: background 0.2s ease, transform 0.1s ease;
                     }
-                    #arcangelRagPanel #btn-avatar-mic:hover { transform: scale(1.05); }
-                    #arcangelRagPanel #btn-avatar-mic .mic-ico { width: 26px; height: 26px; }
-                    #arcangelRagPanel #btn-avatar-mic .mic-ring {
+                    #arielRagPanel #btn-avatar-mic:hover { transform: scale(1.05); }
+                    #arielRagPanel #btn-avatar-mic .mic-ico { width: 26px; height: 26px; }
+                    #arielRagPanel #btn-avatar-mic .mic-ring {
                         position: absolute;
                         inset: -4px;
                         border-radius: 50%;
@@ -244,33 +244,33 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         pointer-events: none;
                     }
                     /* Estado escuchando: rojo + anillo parpadeante */
-                    #arcangelRagPanel #btn-avatar-mic.listening {
+                    #arielRagPanel #btn-avatar-mic.listening {
                         background: radial-gradient(circle at 35% 30%, #f87171, #dc2626);
                     }
-                    #arcangelRagPanel #btn-avatar-mic.listening .mic-ring {
-                        animation: arcangel-mic-pulse 1.2s ease-out infinite;
+                    #arielRagPanel #btn-avatar-mic.listening .mic-ring {
+                        animation: ariel-mic-pulse 1.2s ease-out infinite;
                     }
-                    #arcangelRagPanel #btn-avatar-mic[disabled] { opacity: 0.45; cursor: not-allowed; }
-                    @keyframes arcangel-mic-pulse {
+                    #arielRagPanel #btn-avatar-mic[disabled] { opacity: 0.45; cursor: not-allowed; }
+                    @keyframes ariel-mic-pulse {
                         0%   { transform: scale(1);    opacity: 0.75; }
                         70%  { transform: scale(1.55); opacity: 0;    }
                         100% { transform: scale(1.55); opacity: 0;    }
                     }
-                    #arcangelRagPanel #avatar-mic-status {
+                    #arielRagPanel #avatar-mic-status {
                         font-size: 12px;
                         font-weight: 600;
                         color: #cbd5e1;
                         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
                     }
-                    #arcangelRagPanel #btn-avatar-mic.listening + #avatar-mic-status { color: #fca5a5; }
+                    #arielRagPanel #btn-avatar-mic.listening + #avatar-mic-status { color: #fca5a5; }
                     /* Parpadeo del texto mientras escucha */
-                    #arcangelRagPanel #avatar-mic-dock.is-listening #avatar-mic-status {
-                        animation: arcangel-blink 1s steps(2, start) infinite;
+                    #arielRagPanel #avatar-mic-dock.is-listening #avatar-mic-status {
+                        animation: ariel-blink 1s steps(2, start) infinite;
                     }
-                    @keyframes arcangel-blink { 50% { opacity: 0.35; } }
+                    @keyframes ariel-blink { 50% { opacity: 0.35; } }
 
                     /* ===== Controles de voz de Ariel (Condición A): pausar / detener — abajo a la izquierda ===== */
-                    #arcangelRagPanel #avatar-tts-controls {
+                    #arielRagPanel #avatar-tts-controls {
                         position: absolute;
                         bottom: 18px;
                         left: 14px;
@@ -279,7 +279,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         align-items: center;
                         gap: 8px;
                     }
-                    #arcangelRagPanel .avatar-tts-btn {
+                    #arielRagPanel .avatar-tts-btn {
                         width: 38px;
                         height: 38px;
                         border-radius: 50%;
@@ -295,11 +295,11 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
                         transition: background 0.15s ease, transform 0.1s ease;
                     }
-                    #arcangelRagPanel .avatar-tts-btn:hover { background: #2563eb; color: #fff; transform: scale(1.06); }
-                    #arcangelRagPanel #btn-avatar-stop:hover { background: #dc2626; border-color: #dc2626; }
+                    #arielRagPanel .avatar-tts-btn:hover { background: #2563eb; color: #fff; transform: scale(1.06); }
+                    #arielRagPanel #btn-avatar-stop:hover { background: #dc2626; border-color: #dc2626; }
 
                     /* Subtítulo en vivo de la transcripción sobre el avatar */
-                    #arcangelRagPanel #avatar-subtitle {
+                    #arielRagPanel #avatar-subtitle {
                         position: absolute;
                         bottom: 96px;
                         left: 50%;
@@ -316,7 +316,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         display: none;
                         backdrop-filter: blur(2px);
                     }
-                    #arcangelRagPanel .avatar-wrap {
+                    #arielRagPanel .avatar-wrap {
                         display: flex;
                         flex-direction: column;
                         height: 100%;
@@ -324,7 +324,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         border-right: 1px solid #dee2e6;
                         overflow: hidden;
                     }
-                    #arcangelRagPanel .avatar-header {
+                    #arielRagPanel .avatar-header {
                         background-color: #1e293b;
                         color: white;
                         padding: 10px 16px;
@@ -335,32 +335,60 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         align-items: center;
                         box-sizing: border-box;
                     }
-                    #arcangelRagPanel .avatar-body {
+                    /* Barra de documentos del visor (misma altura/estilo que .avatar-header) */
+                    #arielRagPanel .doc-toolbar {
+                        height: 44px;
+                        box-sizing: border-box;
+                        background-color: #1e293b;
+                        border-bottom: 1px solid #334155;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        padding: 0 12px;
+                        flex-shrink: 0;
+                        overflow-x: auto;
+                    }
+                    #arielRagPanel .doc-tab-btn {
+                        background: #111827;
+                        color: #cbd5e1;
+                        border: 1px solid #4b5563;
+                        border-radius: 4px;
+                        padding: 5px 12px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        white-space: nowrap;
+                        transition: background 0.15s ease, color 0.15s ease;
+                    }
+                    #arielRagPanel .doc-tab-btn:hover { background: #1f2a44; color: #fff; }
+                    #arielRagPanel .doc-tab-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+                    #arielRagPanel .avatar-body {
                         flex: 1;
                         background: #1a1a2e;
                         position: relative;
                         height: calc(100% - 44px);
                     }
                     /* Render del Markdown del RAG dentro de la burbuja de la IA */
-                    #arcangelRagPanel .msg.ai .msg-content > *:first-child { margin-top: 0; }
-                    #arcangelRagPanel .msg.ai .msg-content > *:last-child { margin-bottom: 0; }
-                    #arcangelRagPanel .msg.ai .msg-content p { margin: 6px 0; }
-                    #arcangelRagPanel .msg.ai .msg-content ul { margin: 6px 0; padding-left: 20px; }
-                    #arcangelRagPanel .msg.ai .msg-content li { margin: 2px 0; }
-                    #arcangelRagPanel .msg.ai .msg-content strong { font-weight: 700; }
-                    #arcangelRagPanel .msg.ai .msg-content code {
+                    #arielRagPanel .msg.ai .msg-content > *:first-child { margin-top: 0; }
+                    #arielRagPanel .msg.ai .msg-content > *:last-child { margin-bottom: 0; }
+                    #arielRagPanel .msg.ai .msg-content p { margin: 6px 0; }
+                    #arielRagPanel .msg.ai .msg-content ul { margin: 6px 0; padding-left: 20px; }
+                    #arielRagPanel .msg.ai .msg-content li { margin: 2px 0; }
+                    #arielRagPanel .msg.ai .msg-content strong { font-weight: 700; }
+                    #arielRagPanel .msg.ai .msg-content code {
                         background: rgba(148, 163, 184, 0.18);
                         padding: 1px 5px;
                         border-radius: 4px;
                         font-size: 0.92em;
                     }
                   </style>
-                  <div id="arcangelRagPanel" aria-label="RAG del expediente" role="region">
+                  <div id="arielRagPanel" aria-label="RAG del expediente" role="region">
                     <button id="btn-toggle-modo" type="button" title="Conmutar Modo Conversacional (AVC) / Textual">Modo: Textual</button>
-                    <div class="arcangel-grid-3-col">
+                    <div class="ariel-grid-3-col">
 
                       <!-- IZQUIERDA: PDF -->
                       <section class="doc-wrap">
+                        <header class="doc-toolbar" id="docToolbar" aria-label="Documentos del expediente"></header>
                         <div class="doc-canvas">
                           <div id="docLoader" class="k-loading-mask" hidden>
                               <span class="k-loading-text">Cargando…</span>
@@ -375,12 +403,12 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         <header class="avatar-header" style="display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%;">
                           <span>🧑 Agente Virtual Ariel</span>
                           <select id="avatarSelector" title="Elige la versión del avatar" aria-label="Versión del avatar" style="background: #111827; color: white; border: 1px solid #6b7280; border-radius: 4px; padding: 4px 8px; font-size: 12px; cursor: pointer; outline: none; max-width: 170px;">
-                            <option value="/models/ArcaXplore-F.vrm" selected>Ariel (Femenino)</option>
-                            <option value="/models/ArcaXplore-M.vrm">Ariel (Masculino)</option>
+                            <option value="/models/Ariel-F.vrm" selected>Ariel (Femenino)</option>
+                            <option value="/models/Ariel-M.vrm">Ariel (Masculino)</option>
                           </select>
                         </header>
                         <div class="avatar-body">
-                          <canvas id="arcangelAvatarCanvas"></canvas>
+                          <canvas id="arielAvatarCanvas"></canvas>
                           <div id="avatar-subtitle" aria-live="polite"></div>
                           <div id="avatar-mic-dock">
                             <button id="btn-avatar-mic" type="button" title="Pulsa para hablar con el avatar" aria-label="Hablar con el avatar">
@@ -403,8 +431,8 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                       <!-- DERECHA: CHAT -->
                       <aside class="chat-wrap" id="chat-wrap">
                         <header class="chat-header">
-                          <div class="arcangel-chat-title">
-                            <span class="arcangel-chat-icon"><i class="bi bi-stars" aria-hidden="true"></i></span>
+                          <div class="ariel-chat-title">
+                            <span class="ariel-chat-icon"><i class="bi bi-stars" aria-hidden="true"></i></span>
                             <div>
                               <strong>RAG del expediente</strong>
                               <span id="spanTitleRag">${title}</span>
@@ -438,7 +466,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
 
             // Montar dentro del contenedor disponible
             $(host).append(panelHtml);
-            $("#arcangelRagPanel").addClass("arcangel-panel-active arcangel-rag-panel");
+            $("#arielRagPanel").addClass("ariel-panel-active ariel-rag-panel");
 
             // Ensure the chat body can host an absolute overlay
             $('#chat-footer').css('position', 'relative');
@@ -466,32 +494,32 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             
 
             // Wire-up de eventos
-            $('#arcangelRagPanel').on('click', '.doc-close', function () {
+            $('#arielRagPanel').on('click', '.doc-close', function () {
                 destroyDocPanel();
             });
 
-            $('#arcangelRagPanel').on('click', '#btn-toggle-modo', function () {
+            $('#arielRagPanel').on('click', '#btn-toggle-modo', function () {
                 aplicarModo(!_modoConversacional);
             });
 
-            $('#arcangelRagPanel').on('click', '#btn-toggle-chat', function () {
+            $('#arielRagPanel').on('click', '#btn-toggle-chat', function () {
                 toggleChat();
             });
 
             // FAB de micrófono del avatar (Condición A): inicia/para la escucha
-            $('#arcangelRagPanel').on('click', '#btn-avatar-mic', function () {
+            $('#arielRagPanel').on('click', '#btn-avatar-mic', function () {
                 if (_sttHandle) _sttHandle.toggle();
             });
 
             // Controles de voz de Ariel (Condición A): pausar/reanudar y detener el TTS
-            $('#arcangelRagPanel').on('click', '#btn-avatar-pause', function () {
+            $('#arielRagPanel').on('click', '#btn-avatar-pause', function () {
                 _togglePauseSpeech();
             });
-            $('#arcangelRagPanel').on('click', '#btn-avatar-stop', function () {
+            $('#arielRagPanel').on('click', '#btn-avatar-stop', function () {
                 _stopSpeech();
             });
 
-            $('#arcangelRagPanel').on('change', '#avatarSelector', async function () {
+            $('#arielRagPanel').on('change', '#avatarSelector', async function () {
                 const modelUrl = $(this).val();
                 if (_avatarController && modelUrl) {
                     try {
@@ -566,7 +594,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
         // | A — AVC (chat oculto)| 65%     | 35%        | 0% oculto|
         // | A — AVC (chat visible)| 55%    | 25%        | 20%      |
         function aplicarLayout(modoAVC, chatVisible = false) {
-            const grid   = document.querySelector('#arcangelRagPanel .arcangel-grid-3-col');
+            const grid   = document.querySelector('#arielRagPanel .ariel-grid-3-col');
             const avatar = document.getElementById('avatar-wrap');
             const chat   = document.getElementById('chat-wrap');
             const btnChat = document.getElementById('btn-toggle-chat');
@@ -807,7 +835,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             micBtn.addEventListener('click', () => { listening ? stop() : start(); });
 
             // Handle según condición A/B (Cambio 5)
-            // Nota: records.css define `#arcangelRagPanel #micBtn { display: inline-flex !important }`,
+            // Nota: records.css define `#arielRagPanel #micBtn { display: inline-flex !important }`,
             // por lo que hay que usar setProperty con prioridad 'important' para ocultarlo.
             return {
                 supported,
@@ -836,7 +864,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
 
         async function _initAvatarCanvas() {
             try {
-                const canvas = document.getElementById('arcangelAvatarCanvas');
+                const canvas = document.getElementById('arielAvatarCanvas');
                 if (!canvas) return;
 
                 if (_avatarController) {
@@ -857,15 +885,58 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
         }
 
         function destroyDocPanel() {
-            $('#arcangelRagPanel').hide();
+            $('#arielRagPanel').hide();
             if (_avatarController) {
                 _avatarController.dispose();
                 _avatarController = null;
             }
         }
 
+        // ===== Barra de documentos del visor (pestañas de reglamentos) =====
+        // Carga un documento por su id usando el mismo flujo que las referencias del RAG.
+        function _loadDocument(documentId) {
+            $.ajax({
+                url: '/api/RecordsByUser/PageByDocumentId',
+                contentType: 'application/json',
+                type: 'POST',
+                data: JSON.stringify({ pkDocumentId: documentId, pageNumber: 1, entireDocument: true }),
+                success: function (response) {
+                    try {
+                        window.dhLoadBase64(response.data);
+                        $('#tbPgNumber').val(1);
+                    } catch (e) {
+                        console.error('[RAG] Error al cargar el documento:', e);
+                    }
+                }
+            });
+        }
+
+        // Construye la barra a partir de window.ARCA_DOCS = [{ documentId, title, short }].
+        // Si no hay lista (p. ej. producción con documentos dinámicos), la barra queda oculta.
+        function _renderDocToolbar() {
+            const bar = document.getElementById('docToolbar');
+            if (!bar) return;
+            const docs = Array.isArray(window.ARCA_DOCS) ? window.ARCA_DOCS : [];
+            if (!docs.length) { bar.style.display = 'none'; return; }
+            bar.style.display = 'flex';
+            bar.innerHTML = '';
+            docs.forEach((d, i) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'doc-tab-btn' + (i === 0 ? ' active' : '');
+                btn.textContent = d.short || d.title || d.documentId;
+                btn.title = d.title || d.short || '';
+                btn.addEventListener('click', () => {
+                    _loadDocument(d.documentId);
+                    bar.querySelectorAll('.doc-tab-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+                bar.appendChild(btn);
+            });
+        }
+
         // ===== API PÚBLICA =====
-        async function showArcangelRAG(base64Pdf, rowData, type) {
+        async function showArielRAG(base64Pdf, rowData, type) {
             if (type == 'docs') {
                 window.ARCA_ELEMENT = rowData.pkDocumentId;
             }
@@ -874,8 +945,11 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             }
 
             _ensurePanelMounted(base64Pdf, rowData.title);
-            
-            $('#arcangelRagPanel').show();
+
+            $('#arielRagPanel').show();
+
+            // Barra de pestañas de documentos (reglamentos) sobre el visor
+            _renderDocToolbar();
 
             _sttHandle = configureSTT();
             // Conectar el indicador del micrófono del avatar al estado del STT
@@ -1082,7 +1156,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
         async function sendRagQuestion(payload) {
             // payload: { developerId, token, element, question, resumeLevel }
             const resp = await $.ajax({
-                url: '/api/XPLORErag',
+                url: '/api/rag',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -1131,7 +1205,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                         }
 
                         $.ajax({
-                            url: '/api/RecordsByUser/XPLOREPageByDocumentId',
+                            url: '/api/RecordsByUser/PageByDocumentId',
                             contentType: 'application/json',
                             type: 'POST',
                             data: JSON.stringify(pageRequest),
@@ -1168,7 +1242,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
 
         // Exponer API pública
         return {
-            showArcangelRAG
+            showArielRAG
         };
     })(jQuery, kendo);
 }

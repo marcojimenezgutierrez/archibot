@@ -2,7 +2,7 @@
    demo.css — Estilos del panel RAG para el DEMO standalone (PF-3311).
    Reemplaza, de forma limpia y autocontenida, lo que en producción aporta
    records.css (archivo de la compañía). El lado del avatar, los toggles y el
-   render de Markdown ya vienen con estilos inline dentro de arcangelRAG.js.
+   render de Markdown ya vienen con estilos inline dentro de arielrag.js.
    Paleta oscura coherente con el avatar (#1a1a2e / slate).
    =========================================================================== */
 
@@ -27,7 +27,7 @@ html, body {
 }
 
 /* ---- Panel raíz (a pantalla completa) ---- */
-#arcangelRagPanel {
+#arielRagPanel {
     position: fixed;
     inset: 0;
     z-index: 1000;
@@ -37,22 +37,22 @@ html, body {
 }
 
 /* ---- Columna izquierda: visor de PDF ---- */
-#arcangelRagPanel .doc-wrap {
+#arielRagPanel .doc-wrap {
     height: 100%;
     background: #0b1220;
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
-#arcangelRagPanel .doc-canvas { flex: 1; position: relative; overflow: hidden; }
-#arcangelRagPanel #docHost {
+#arielRagPanel .doc-canvas { flex: 1; position: relative; overflow: hidden; }
+#arielRagPanel #docHost {
     height: 100%;
     overflow: auto;
     display: flex;
     flex-direction: column;
 }
 /* El visor ocupa todo el ancho de #docHost; centra las páginas dentro de sí mismo */
-#arcangelRagPanel #pdfViewer {
+#arielRagPanel #pdfViewer {
     width: 100%;
     padding: 16px;
     display: flex;
@@ -60,26 +60,26 @@ html, body {
     align-items: center;
     gap: 14px;
 }
-#arcangelRagPanel .demo-pdf-page {
+#arielRagPanel .demo-pdf-page {
     max-width: 100%;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
-#arcangelRagPanel .demo-pdf-error { color: var(--demo-muted); padding: 24px; }
+#arielRagPanel .demo-pdf-error { color: var(--demo-muted); padding: 24px; }
 
 /* ---- Avatar: el canvas llena su contenedor (resto de estilos inline) ---- */
-#arcangelRagPanel #arcangelAvatarCanvas { width: 100%; height: 100%; display: block; }
+#arielRagPanel #arielAvatarCanvas { width: 100%; height: 100%; display: block; }
 
 /* ---- Columna derecha: chat ---- */
-#arcangelRagPanel .chat-wrap {
+#arielRagPanel .chat-wrap {
     height: 100%;
     background: var(--demo-panel);
     display: flex;
     flex-direction: column;
     border-left: 1px solid var(--demo-line);
 }
-#arcangelRagPanel .chat-header {
+#arielRagPanel .chat-header {
     padding: 12px 16px;
     border-bottom: 1px solid var(--demo-line);
     display: flex;
@@ -87,12 +87,12 @@ html, body {
     gap: 10px;
     min-height: 56px;
 }
-#arcangelRagPanel .arcangel-chat-title { display: flex; align-items: center; gap: 10px; }
-#arcangelRagPanel .arcangel-chat-icon { font-size: 18px; color: #60a5fa; }
-#arcangelRagPanel .arcangel-chat-title strong { font-size: 14px; display: block; }
-#arcangelRagPanel #spanTitleRag { font-size: 12px; color: var(--demo-muted); }
+#arielRagPanel .ariel-chat-title { display: flex; align-items: center; gap: 10px; }
+#arielRagPanel .ariel-chat-icon { font-size: 18px; color: #60a5fa; }
+#arielRagPanel .ariel-chat-title strong { font-size: 14px; display: block; }
+#arielRagPanel #spanTitleRag { font-size: 12px; color: var(--demo-muted); }
 
-#arcangelRagPanel .chat-body {
+#arielRagPanel .chat-body {
     flex: 1;
     overflow-y: auto;
     padding: 16px;
@@ -102,7 +102,7 @@ html, body {
 }
 
 /* Burbujas de mensaje */
-#arcangelRagPanel .msg {
+#arielRagPanel .msg {
     max-width: 92%;
     padding: 10px 13px;
     border-radius: 14px;
@@ -110,12 +110,12 @@ html, body {
     font-size: 14px;
     word-wrap: break-word;
 }
-#arcangelRagPanel .msg.ai {
+#arielRagPanel .msg.ai {
     background: #1e293b;
     align-self: flex-start;
     border-bottom-left-radius: 4px;
 }
-#arcangelRagPanel .msg.user {
+#arielRagPanel .msg.user {
     background: var(--demo-accent);
     color: #fff;
     align-self: flex-end;
@@ -123,7 +123,7 @@ html, body {
 }
 
 /* Botón de voz (TTS) por mensaje */
-#arcangelRagPanel .voice-btn {
+#arielRagPanel .voice-btn {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -132,12 +132,12 @@ html, body {
     margin-top: 4px;
     line-height: 0;
 }
-#arcangelRagPanel .voice-btn:hover { color: var(--demo-text); }
-#arcangelRagPanel .voice-btn.listening { color: #22c55e; }
+#arielRagPanel .voice-btn:hover { color: var(--demo-text); }
+#arielRagPanel .voice-btn.listening { color: #22c55e; }
 
 /* Enlaces de referencia */
-#arcangelRagPanel .ref-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-#arcangelRagPanel .ref-links .k-button {
+#arielRagPanel .ref-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+#arielRagPanel .ref-links .k-button {
     background: transparent;
     border: 1px solid #334155;
     color: #93c5fd;
@@ -146,18 +146,18 @@ html, body {
     font-size: 12px;
     cursor: pointer;
 }
-#arcangelRagPanel .ref-links .k-button:hover { background: #1e293b; }
+#arielRagPanel .ref-links .k-button:hover { background: #1e293b; }
 
 /* ---- Footer: input + enviar + micrófono ---- */
-#arcangelRagPanel .chat-footer {
+#arielRagPanel .chat-footer {
     padding: 12px;
     border-top: 1px solid var(--demo-line);
     position: relative;
 }
-#arcangelRagPanel .k-hstack { display: flex; align-items: center; }
-#arcangelRagPanel .k-gap-2 { gap: 8px; }
+#arielRagPanel .k-hstack { display: flex; align-items: center; }
+#arielRagPanel .k-gap-2 { gap: 8px; }
 
-#arcangelRagPanel .rag-input {
+#arielRagPanel .rag-input {
     flex: 1;
     min-width: 0;
     background: var(--demo-field);
@@ -168,9 +168,9 @@ html, body {
     outline: none;
     font-size: 14px;
 }
-#arcangelRagPanel .rag-input:focus { border-color: var(--demo-accent); }
+#arielRagPanel .rag-input:focus { border-color: var(--demo-accent); }
 
-#arcangelRagPanel #btnAsk.rag-btn {
+#arielRagPanel #btnAsk.rag-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -184,10 +184,10 @@ html, body {
     font-weight: 600;
     white-space: nowrap;
 }
-#arcangelRagPanel #btnAsk.rag-btn:hover { background: #1d4ed8; }
-#arcangelRagPanel .btn-icon { width: 16px; height: 16px; }
+#arielRagPanel #btnAsk.rag-btn:hover { background: #1d4ed8; }
+#arielRagPanel .btn-icon { width: 16px; height: 16px; }
 
-#arcangelRagPanel #micBtn {
+#arielRagPanel #micBtn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -201,8 +201,8 @@ html, body {
     position: relative;
     overflow: visible;
 }
-#arcangelRagPanel #micBtn:hover { border-color: var(--demo-accent); }
-#arcangelRagPanel #micBtn.listening {
+#arielRagPanel #micBtn:hover { border-color: var(--demo-accent); }
+#arielRagPanel #micBtn.listening {
     background: #dc3545;
     border-color: #dc3545;
     color: #fff;
@@ -213,7 +213,7 @@ html, body {
     70%  { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
     100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
 }
-#arcangelRagPanel #micBtn #status {
+#arielRagPanel #micBtn #status {
     position: absolute;
     bottom: 110%;
     right: 0;
@@ -226,8 +226,8 @@ html, body {
 }
 
 /* ---- Loaders (clases k-loading-* de Kendo, versión mínima) ---- */
-#arcangelRagPanel #chatLoader,
-#arcangelRagPanel .chat-loading {
+#arielRagPanel #chatLoader,
+#arielRagPanel .chat-loading {
     position: absolute;
     inset: 0;
     display: flex;
@@ -236,15 +236,15 @@ html, body {
     background: rgba(17, 24, 39, 0.75);
     border-radius: 10px;
 }
-#arcangelRagPanel #chatLoader[hidden],
-#arcangelRagPanel #docLoader[hidden] { display: none !important; }
-#arcangelRagPanel .k-loading-text {
+#arielRagPanel #chatLoader[hidden],
+#arielRagPanel #docLoader[hidden] { display: none !important; }
+#arielRagPanel .k-loading-text {
     position: absolute;
     width: 1px; height: 1px;
     overflow: hidden; clip: rect(0 0 0 0);
 }
-#arcangelRagPanel .k-loading-image,
-#arcangelRagPanel .k-loading-color {
+#arielRagPanel .k-loading-image,
+#arielRagPanel .k-loading-color {
     width: 26px;
     height: 26px;
     border: 3px solid rgba(148, 163, 184, 0.35);
@@ -255,6 +255,6 @@ html, body {
 @keyframes demo-spin { to { transform: rotate(360deg); } }
 
 /* Scrollbars discretos */
-#arcangelRagPanel *::-webkit-scrollbar { width: 10px; height: 10px; }
-#arcangelRagPanel *::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; }
-#arcangelRagPanel *::-webkit-scrollbar-track { background: transparent; }
+#arielRagPanel *::-webkit-scrollbar { width: 10px; height: 10px; }
+#arielRagPanel *::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; }
+#arielRagPanel *::-webkit-scrollbar-track { background: transparent; }

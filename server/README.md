@@ -1,7 +1,7 @@
 # Backend del demo Archibot — RAG con LLM
 
 Proxy mínimo (Node/Express) que convierte el demo en un **RAG real**: sirve la carpeta
-[`../demo`](../demo) y expone `POST /api/XPLORErag`, que arma el contexto con el texto de
+[`../demo`](../demo) y expone `POST /api/rag`, que arma el contexto con el texto de
 los tres reglamentos del expediente y consulta el **LLM**.
 
 Por defecto usa **OpenAI** (`gpt-4.1-nano`); opcionalmente, Azure OpenAI.
@@ -60,7 +60,7 @@ npm run extract-context     # requiere Python + pdfplumber (pip install pdfplumb
 
 ## Contrato de la API
 
-`POST /api/XPLORErag` → body `{ "question": "..." }`
+`POST /api/rag` → body `{ "question": "..." }`
 Respuesta (igual que el mock, para no tocar el front-end):
 
 ```json

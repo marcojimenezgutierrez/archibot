@@ -60,7 +60,7 @@ css/
 js/
   records/
     avatar.js           Motor 3D del avatar (Three.js + @pixiv/three-vrm)
-    arcangelRAG.js      UI del RAG conversacional (condiciones A/B, voz, render de Markdown)
+    arielrag.js      UI del RAG conversacional (condiciones A/B, voz, render de Markdown)
     arcaSTTCapture.js   Reconocimiento de voz (STT)
     arcaTTSController.js Síntesis de voz (TTS)
   bootstrap.js          Arranque del demo + RAG simulado (sin backend)

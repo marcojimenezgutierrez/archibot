@@ -7,9 +7,9 @@
 
 ## 1. Contexto del Proyecto
 
-**Plataforma base:** Arca.Xplore — sistema de gestión de expedientes documentales.
+**Plataforma base:** Sistema de gestión de expedientes documentales.
 
-**Sistema existente ("Arcángel"):** Panel RAG conversacional que ya opera en producción con:
+**Sistema existente :** Panel RAG conversacional que ya opera en producción con:
 - Visor de PDF (pdf.js)
 - Agente virtual 3D (Three.js + @pixiv/three-vrm, modelos VRM)
 - Chat conversacional con LLM remoto
@@ -142,7 +142,7 @@ El botón "Modo Conversacional" controla:
 | `docs/articulo_wip.md` | Artículo académico WIP (IEEE, Markdown) — pendiente actualizar con arquitectura definitiva |
 | `docs/instrumentos_piloto.md` | Guión de tareas + cuestionario de retención completo |
 | `docs/reporte_consolidado.md` | Este documento |
-| `wwwroot/js/records/arcangelRAG.js` | UI y lógica del panel RAG |
+| `wwwroot/js/records/arielrag.js` | UI y lógica del panel RAG |
 | `wwwroot/js/records/avatar.js` | Controlador 3D (Three.js + three-vrm) |
 | `Controllers/XPLOREragController.cs` | Pass-through a la Arca API |
 

@@ -7,10 +7,10 @@
 
 ## Contexto
 
-El sistema existente ("Arcángel") opera en producción dentro de Arca.Xplore con avatar 3D, chat RAG, visor PDF, TTS manual (botón por mensaje + Alt+V) y STT. Los cambios descritos en este spec adaptan ese sistema para el estudio experimental comparativo entre **Condición A (AVC)** y **Condición B (Textual)**.
+El sistema existente opera en producción dentro de una solución comercial con avatar 3D, chat RAG, visor PDF, TTS manual (botón por mensaje + Alt+V) y STT. Los cambios descritos en este spec adaptan ese sistema para el estudio experimental comparativo entre **Condición A (AVC)** y **Condición B (Textual)**.
 
 Archivos principales a modificar:
-- `wwwroot/js/records/arcangelRAG.js` — UI, lógica del panel RAG, toggle
+- `wwwroot/js/records/arielrag.js` — UI, lógica del panel RAG, toggle
 - `wwwroot/js/records/avatar.js` — AvatarController (Three.js + three-vrm)
 
 ---
@@ -27,7 +27,7 @@ Botón en la UI que conmuta entre Condición B (textual, default) y Condición A
 | Desactivado (default) | Condición B activa |
 | Activado | Condición A activa |
 
-### Implementación en `arcangelRAG.js`
+### Implementación en `arielrag.js`
 
 ```javascript
 // Estado inicial
@@ -86,7 +86,7 @@ El layout del panel RAG usa un flex container de tres columnas (`col-pdf`, `col-
 | A — AVC | Chat oculto (default) | 65% | 35% | 0% (oculto) |
 | A — AVC | Chat desplegado | 55% | 25% | 20% |
 
-### Implementación en `arcangelRAG.js`
+### Implementación en `arielrag.js`
 
 ```javascript
 function aplicarLayout(modoAVC, chatVisible = false) {
@@ -131,7 +131,7 @@ function toggleChat() {
 ### Descripción
 En la implementación actual, el TTS se activa manualmente (botón por mensaje + Alt+V). Para Condición A, la síntesis de voz debe dispararse automáticamente al recibir la respuesta del backend.
 
-### Implementación en `arcangelRAG.js`
+### Implementación en `arielrag.js`
 
 ```javascript
 let ttsAutomatico = false; // se activa con el toggle
@@ -201,7 +201,7 @@ _animarLabios() {
 ### Descripción
 `ArcaSTTCapture` (STT en español de Costa Rica) solo debe estar activo en Condición A. En Condición B el input es exclusivamente por teclado.
 
-### Implementación en `arcangelRAG.js`
+### Implementación en `arielrag.js`
 
 ```javascript
 // En aplicarModo():
@@ -221,11 +221,11 @@ if (activo) {
 
 | # | Cambio | Archivo | Prioridad |
 |---|---|---|---|
-| 1 | Toggle "Modo Conversacional" con persistencia en `localStorage` | `arcangelRAG.js` | Alta |
-| 2 | Gestión de layouts (80/20, 65/35, 55/25/20) con flex | `arcangelRAG.js` | Alta |
-| 3 | TTS automático al recibir respuesta (solo Condición A) | `arcangelRAG.js` | Alta |
+| 1 | Toggle "Modo Conversacional" con persistencia en `localStorage` | `arielrag.js` | Alta |
+| 2 | Gestión de layouts (80/20, 65/35, 55/25/20) con flex | `arielrag.js` | Alta |
+| 3 | TTS automático al recibir respuesta (solo Condición A) | `arielrag.js` | Alta |
 | 4 | Lip sync simulado via eventos `SpeechSynthesisUtterance` | `avatar.js` | Alta |
-| 5 | Activación/desactivación de STT según condición | `arcangelRAG.js` | Alta |
+| 5 | Activación/desactivación de STT según condición | `arielrag.js` | Alta |
 
 ---
 

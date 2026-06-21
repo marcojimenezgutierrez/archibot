@@ -2,7 +2,7 @@
  * server.js — Proxy backend del demo Archibot (PF-3311).
  *
  * - Sirve la carpeta estática `demo/`.
- * - Expone POST /api/XPLORErag: arma el contexto con el texto de los 3 reglamentos
+ * - Expone POST /api/rag: arma el contexto con el texto de los 3 reglamentos
  *   (marcadores [doc pN]) y llama al LLM para responder. Devuelve el MISMO contrato
  *   que el mock del front-end: { response: { answer, referenceLinks } }.
  * - La API key NUNCA llega al navegador: vive solo aquí (variables de entorno).
@@ -159,7 +159,7 @@ function toChatMessage(rawJsonString) {
 }
 
 // ---- Endpoint RAG (mismo contrato que el mock del front-end) ----
-app.post('/api/XPLORErag', async (req, res) => {
+app.post('/api/rag', async (req, res) => {
     const question = (req.body && req.body.question || '').toString().trim();
     if (!question) {
         return res.status(400).json({ error: 'Falta la pregunta.' });
@@ -168,7 +168,7 @@ app.post('/api/XPLORErag', async (req, res) => {
         const raw = await callLLM(question);
         res.json({ response: toChatMessage(raw) });
     } catch (err) {
-        console.error('[api/XPLORErag] error:', err.message);
+        console.error('[api/rag] error:', err.message);
         res.status(502).json({ error: 'Error consultando el servicio de IA.' });
     }
 });

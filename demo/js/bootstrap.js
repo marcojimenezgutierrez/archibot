@@ -1,7 +1,7 @@
 /**
  * bootstrap.js — Arranque del DEMO standalone (sin backend).
  *
- * Provee todo lo que en producción aporta el app de la compañía (Arca.Xplore):
+ * Provee todo lo que en producción aporta el app host de la plataforma:
  *  - stub de kendo.htmlEncode
  *  - variables globales dummy (ARCA_DEV_ID / ARCA_TOKEN)
  *  - setupDocHost(): renderiza un PDF con PDF.js (soporta varios documentos)
@@ -49,6 +49,13 @@
         }
     };
     const DEFAULT_DOC = 'horas';   // documento visible al abrir el panel
+
+    // Lista de documentos para la barra de pestañas del visor (la consume arielrag.js).
+    window.ARCA_DOCS = [
+        { documentId: 'horas',   title: DOCS.horas.title,   short: 'Horas' },
+        { documentId: 'regimen', title: DOCS.regimen.title, short: 'Régimen Académico' },
+        { documentId: 'tcu',     title: DOCS.tcu.title,     short: 'TCU' },
+    ];
 
     // ---- 1. Dependencias mínimas que el código espera del host ----
     window.kendo = window.kendo || {
@@ -114,7 +121,7 @@
     };
 
     // Salto de referencia del RAG. En el demo, `payload` describe documento y página
-    // (lo entrega el mock de XPLOREPageByDocumentId). Cambia de PDF si hace falta.
+    // (lo entrega el mock de PageByDocumentId). Cambia de PDF si hace falta.
     window.dhLoadBase64 = async function (payload) {
         let docId = _currentDocId;
         let page = parseInt((document.getElementById('tbPgNumber') || {}).value, 10) || 1;
@@ -253,7 +260,7 @@
     $.ajax = function (opts) {
         const url = (opts && opts.url) || '';
 
-        if (url.indexOf('/api/XPLORErag') !== -1) {
+        if (url.indexOf('/api/rag') !== -1) {
             // En modo 'live' dejamos pasar la petición al backend real (mismo contrato de respuesta).
             // En modo 'mock' devolvemos la respuesta guionizada.
             return _ragModePromise.then((mode) => {
@@ -262,7 +269,7 @@
                 try { q = JSON.parse(opts.data || '{}').question || ''; } catch (_) { }
                 return _mockResolve({ response: ragAnswerFor(q) }, 700, opts);
             });
-        } else if (url.indexOf('XPLOREPageByDocumentId') !== -1) {
+        } else if (url.indexOf('PageByDocumentId') !== -1) {
             // La navegación de páginas del PDF es client-side en AMBOS modos:
             // devolvemos { docId, page } para que dhLoadBase64 cambie de PDF.
             let req = {};
@@ -286,15 +293,15 @@
     }
 
     function launch() {
-        // El modo se lee de localStorage al cargar arcangelRAGLoader; lo fijamos antes según el query string.
+        // El modo se lee de localStorage al cargar arielRAGLoader; lo fijamos antes según el query string.
         try { localStorage.setItem('archibot_conversacional', _modoDesdeQueryString() ? 'true' : 'false'); } catch (_) { }
 
-        if (typeof window.arcangelRAGLoader !== 'function') {
-            console.error('[demo] arcangelRAGLoader no está cargado.');
+        if (typeof window.arielRAGLoader !== 'function') {
+            console.error('[demo] arielRAGLoader no está cargado.');
             return;
         }
-        window.arcangelRAGLoader(window.jQuery, window.kendo);
-        window.ArcangelRAG.showArcangelRAG(
+        window.arielRAGLoader(window.jQuery, window.kendo);
+        window.ArielRAG.showArielRAG(
             '',
             { pkRecordId: 'expediente-ucr', title: 'Expediente: Reglamentos UCR (PF-3311)' },
             'record'

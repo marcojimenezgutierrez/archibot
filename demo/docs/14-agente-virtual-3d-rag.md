@@ -1,6 +1,6 @@
-# Integración del Agente Virtual 3D en el RAG de Arca.Xplore
+# Integración del Agente Virtual 3D en el RAG de Archibot
 
-Este documento detalla la arquitectura, el diseño y las configuraciones del **Agente Virtual 3D animado** integrado en el panel del RAG conversacional de `Arca.Xplore`.
+Este documento detalla la arquitectura, el diseño y las configuraciones del **Agente Virtual 3D animado** integrado en el panel del RAG conversacional de `Archibot`.
 
 ---
 
@@ -48,7 +48,7 @@ El visor cuenta con un menú desplegable de selección de modelos (`#avatarSelec
 * **Cómo añadir nuevos modelos:**
   1. Descarga o crea tu personaje en formato `.vrm` (compatible con la especificación VRM 1.0).
   2. Coloca el archivo en la carpeta física `wwwroot/models/` de tu proyecto (ej. `wwwroot/models/mi_avatar.vrm`).
-  3. En `arcangelRAG.js`, añade una nueva opción en la etiqueta `<select id="avatarSelector">`:
+  3. En `arielrag.js`, añade una nueva opción en la etiqueta `<select id="avatarSelector">`:
      ```html
      <option value="/models/mi_avatar.vrm">Mi Nuevo Avatar</option>
      ```
@@ -59,6 +59,6 @@ El visor cuenta con un menú desplegable de selección de modelos (`#avatarSelec
 ## 📂 Archivos Involucrados
 
 1. **`wwwroot/js/records/avatar.js`**: Controlador WebGL del avatar. Gestiona la escena de Three.js, cámaras, iluminación de tres puntos, carga del VRM, animación de huesos e hilos de renderizado.
-2. **`wwwroot/js/records/arcangelRAG.js`**: Lógica UI de RAG. Genera el layout de 3 columnas, conecta el analizador de voz, gatilla el TTS e interpreta semánticamente las emociones para enviarlas al controlador de avatar.
+2. **`wwwroot/js/records/arielrag.js`**: Lógica UI de RAG. Genera el layout de 3 columnas, conecta el analizador de voz, gatilla el TTS e interpreta semánticamente las emociones para enviarlas al controlador de avatar.
 3. **`Views/Shared/_Layout.cshtml`**: Inyección del `importmap` del navegador utilizando `@Html.Raw` para posibilitar la carga limpia de módulos de ES6 de manera ultra rápida.
 4. **`wwwroot/models/default_avatar.vrm`**: Archivo de malla y rigging 3D del avatar por defecto (Alicia).

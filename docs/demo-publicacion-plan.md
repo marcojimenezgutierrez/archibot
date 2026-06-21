@@ -12,7 +12,7 @@ el avatar, voz, lip-sync y las Condiciones A/B en su navegador, sin login ni API
 ## Archivos que SÍ se publican (verificados: sin URLs/tokens/secretos)
 Origen: `C:\bis\arcasuite\Arca.Xplore\`
 - `wwwroot/js/records/avatar.js` — motor 3D (Three.js + VRM); limpio, 100% propio.
-- `wwwroot/js/records/arcangelRAG.js` — UI RAG: Modo A/B, micrófono, voz por avatar,
+- `wwwroot/js/records/arielrag.js` — UI RAG: Modo A/B, micrófono, voz por avatar,
   render de Markdown. Solo rutas relativas `/api/...` y vars `window.*` (sin secretos).
 - `wwwroot/js/records/arcaSTTCapture.js` — wrapper STT genérico.
 - `wwwroot/js/records/arcaTTSController.js` — wrapper TTS genérico.
@@ -35,12 +35,12 @@ Origen: `C:\bis\arcasuite\Arca.Xplore\`
      index.html          # carga importmap (three + three-vrm), monta el panel RAG
      js/
        avatar.js
-       arcangelRAG.js
+       arielrag.js
        arcaSTTCapture.js
        arcaTTSController.js
        mock-rag.js        # responde preguntas con texto de ejemplo (Markdown) sin backend
      models/ ArcaXplore-M.vrm, ArcaXplore-F.vrm
-     css/ (extraer las reglas RAG necesarias; el grueso ya está inline en arcangelRAG.js)
+     css/ (extraer las reglas RAG necesarias; el grueso ya está inline en arielrag.js)
      docs/ 14-agente-virtual-3d-rag.md, dev_spec.md
      README.md           # cómo correrlo (servir con un static server por los ES modules)
    ```
@@ -49,7 +49,7 @@ Origen: `C:\bis\arcasuite\Arca.Xplore\`
    Markdown (con negritas, lista y citas) que ejercite el render y el TTS.
 3. Verificar que corre con un static server (los ES modules requieren http://, no file://):
    p.ej. `npx serve demo` o `python -m http.server`.
-4. (Opcional) Redactar/limpiar en `arcangelRAG.js` los nombres de endpoint si se quiere
+4. (Opcional) Redactar/limpiar en `arielrag.js` los nombres de endpoint si se quiere
    ocultar del todo la superficie del API (reemplazar por el mock).
 5. README con: qué es el estudio, cómo lanzar el demo, controles (toggle A/B, micrófono,
    selector de avatar).
