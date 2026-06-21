@@ -1,0 +1,17 @@
+{
+  "name": "archibot-demo-server",
+  "version": "1.0.0",
+  "description": "Proxy backend para el demo Archibot: sirve la carpeta demo/ y expone /api/XPLORErag llamando a Azure OpenAI con el contexto de los reglamentos (RAG simulado por context-stuffing).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "extract-context": "python extract_context.py"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

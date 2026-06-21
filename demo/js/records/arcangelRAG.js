@@ -15,9 +15,14 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
         let _chatVisible = false;        // sólo aplica en Condición A (AVC)
         let _ttsAutomatico = false;      // TTS automático sólo en Condición A
         let _sttHandle = null;           // { enable, disable } devuelto por configureSTT()
+        let avatarName = 'Ariel';       // Nombre genérico del avatar para usar en los mensajes iniciales y de error (independiente del modelo 3D seleccionado)
+        let _ttsPaused = false;          // Estado de pausa del TTS (controles de voz del avatar)
+        let _greetingText = '';          // Saludo aleatorio elegido al montar (para mostrarlo y, en AVC, locutarlo)
+        let _greetingSpoken = false;     // Ya se locutó el saludo (no repetir)
+        let _greetingPending = false;    // Locución del saludo en curso de confirmación
 
         // ===== Avatar seleccionado y voz asociada =====
-        let _selectedAvatarUrl = '/models/ArcaXplore-M.vrm';
+        let _selectedAvatarUrl = '/models/ArcaXplore-F.vrm';
         const AVATAR_VOICES = {
             '/models/ArcaXplore-M.vrm': { gender: 'male',   pitch: 0.9 },
             '/models/ArcaXplore-F.vrm': { gender: 'female', pitch: 1.12 },
@@ -32,18 +37,101 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
         function _voiceOptsForAvatar(url) {
             const cfg = AVATAR_VOICES[url] || { gender: 'female', pitch: 1.0 };
             const tts = _getTTS();
+            // Caché del controlador y, si aún no cargó, la API nativa como respaldo.
+            let voices = (tts && tts.getVoices && tts.getVoices()) || [];
+            if (!voices.length && window.speechSynthesis) {
+                voices = window.speechSynthesis.getVoices() || [];
+            }
             let voiceName = null;
-            if (tts && tts.getVoices) {
-                const voices = tts.getVoices() || [];
+            if (voices.length) {
                 const es = voices.filter(v => (v.lang || '').toLowerCase().startsWith('es'));
                 const pool = es.length ? es : voices;
-                const hit = pool.find(v => VOICE_HINTS[cfg.gender].test(v.name));
-                voiceName = hit ? hit.name : (pool[0] && pool[0].name) || null;
+                const wanted = VOICE_HINTS[cfg.gender];
+                const opposite = cfg.gender === 'female' ? VOICE_HINTS.male : VOICE_HINTS.female;
+                // 1) voz del género buscado; 2) una que NO sea del género opuesto; 3) la primera disponible.
+                const hit = pool.find(v => wanted.test(v.name))
+                    || pool.find(v => !opposite.test(v.name))
+                    || pool[0];
+                voiceName = hit ? hit.name : null;
             }
             const matchedGender = !!voiceName && VOICE_HINTS[cfg.gender].test(voiceName);
             return { lang: 'es-CR', voiceName, pitch: matchedGender ? 1.0 : cfg.pitch };
         }
 
+        // Ejecuta `cb` cuando las voces del sistema están disponibles (carga asíncrona).
+        // Llama de inmediato si ya están; si no, espera el evento `voiceschanged` o sondea.
+        function _whenVoicesReady(cb) {
+            const synth = window.speechSynthesis;
+            if (!synth) { cb(); return; }
+            if ((synth.getVoices() || []).length) { cb(); return; }
+            let done = false, attempts = 0;
+            const finish = () => {
+                if (done) return;
+                done = true;
+                clearInterval(timer);
+                if (synth.removeEventListener) synth.removeEventListener('voiceschanged', onVC);
+                cb();
+            };
+            const onVC = () => { if ((synth.getVoices() || []).length) finish(); };
+            if (synth.addEventListener) synth.addEventListener('voiceschanged', onVC);
+            const timer = setInterval(() => {
+                if ((synth.getVoices() || []).length || ++attempts > 25) finish();
+            }, 120);
+        }
+
+
+        // ===== Saludo inicial de Ariel (3 variantes aleatorias) =====
+        function _randomGreeting() {
+            const saludos = [
+                `¡Hola! Soy ${avatarName}. ¿En qué te puedo ayudar con el expediente de hoy?`,
+                `Hola, soy ${avatarName}. Pregúntame lo que necesites sobre el documento de la izquierda.`,
+                `¡Qué gusto saludarte! Soy ${avatarName}, tu asistente. ¿Sobre cuál reglamento quieres consultar?`
+            ];
+            return saludos[Math.floor(Math.random() * saludos.length)];
+        }
+
+        // Locuta el saludo (sólo en Condición A). Una sola vez.
+        function _speakGreeting() {
+            if (_greetingSpoken || _greetingPending || !_greetingText) return;
+            const tts = _getTTS();
+            const synth = window.speechSynthesis;
+            if (!tts || !synth) return;
+
+            _greetingPending = true;
+            // Esperar a que las voces carguen para que se elija la voz acorde al género del avatar.
+            _whenVoicesReady(() => {
+                _setAvatarMicSpeaking(true); // anti-feedback + bloquea micro mientras saluda
+                Promise.resolve(
+                    tts.speak(_stripForVoice(_greetingText), _voiceOptsForAvatar(_selectedAvatarUrl))
+                ).finally(() => _setAvatarMicSpeaking(false));
+
+                // Confirmar que realmente arrancó: el navegador bloquea speechSynthesis
+                // sin un gesto previo del usuario. Si no arrancó, dejamos el fallback armado.
+                setTimeout(() => {
+                    _greetingPending = false;
+                    if (synth.speaking || synth.pending) {
+                        _greetingSpoken = true;
+                    } else {
+                        _setAvatarMicSpeaking(false);
+                    }
+                }, 350);
+            });
+        }
+
+        // Intenta locutar el saludo de inmediato y, si el autoplay está bloqueado,
+        // lo reproduce en la primera interacción del usuario (click/tecla/touch).
+        function _armGreetingSpeech() {
+            _speakGreeting();
+            if (_greetingSpoken) return;
+
+            const events = ['pointerdown', 'keydown', 'touchstart'];
+            const cleanup = () => events.forEach(ev => document.removeEventListener(ev, onGesture, true));
+            const onGesture = () => {
+                _speakGreeting();
+                if (_greetingSpoken || _greetingPending) cleanup();
+            };
+            events.forEach(ev => document.addEventListener(ev, onGesture, true));
+        }
 
         // ===== Utilidades =====
         function _ensurePanelMounted(base64Pdf, title) {
@@ -56,6 +144,10 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             }
 
             const host = document.body;
+
+            // Elegir el saludo una sola vez para que el texto mostrado y el locutado coincidan.
+            _greetingText = _randomGreeting();
+            _greetingSpoken = false;
 
             const panelHtml = `
                   <style>
@@ -73,8 +165,8 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                     #arcangelRagPanel #chat-wrap  { grid-column: 3; min-width: 0; overflow: hidden; }
                     #arcangelRagPanel #btn-toggle-modo {
                         position: absolute;
-                        top: 8px;
-                        right: 12px;
+                        bottom: 56px;          /* Tarea 2: abajo a la derecha, apilado sobre el botón de chat (ya no tapa #avatarSelector) */
+                        right: 14px;
                         z-index: 10;
                         background: #111827;
                         color: #cbd5e1;
@@ -177,6 +269,35 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                     }
                     @keyframes arcangel-blink { 50% { opacity: 0.35; } }
 
+                    /* ===== Controles de voz de Ariel (Condición A): pausar / detener — abajo a la izquierda ===== */
+                    #arcangelRagPanel #avatar-tts-controls {
+                        position: absolute;
+                        bottom: 18px;
+                        left: 14px;
+                        z-index: 6;
+                        display: none;            /* aplicarLayout lo muestra en Condición A */
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    #arcangelRagPanel .avatar-tts-btn {
+                        width: 38px;
+                        height: 38px;
+                        border-radius: 50%;
+                        border: 1px solid #334155;
+                        background: rgba(30, 41, 59, 0.9);
+                        color: #e2e8f0;
+                        font-size: 14px;
+                        line-height: 1;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+                        transition: background 0.15s ease, transform 0.1s ease;
+                    }
+                    #arcangelRagPanel .avatar-tts-btn:hover { background: #2563eb; color: #fff; transform: scale(1.06); }
+                    #arcangelRagPanel #btn-avatar-stop:hover { background: #dc2626; border-color: #dc2626; }
+
                     /* Subtítulo en vivo de la transcripción sobre el avatar */
                     #arcangelRagPanel #avatar-subtitle {
                         position: absolute;
@@ -252,10 +373,10 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                       <!-- CENTRO: AVATAR 3D -->
                       <section class="avatar-wrap" id="avatar-wrap">
                         <header class="avatar-header" style="display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%;">
-                          <span>🧑 Agente Virtual Arcángel</span>
-                          <select id="avatarSelector" style="background: #111827; color: white; border: 1px solid #4b5563; border-radius: 4px; padding: 2px 6px; font-size: 11px; cursor: pointer; outline: none; max-width: 120px;">
-                            <option value="/models/ArcaXplore-M.vrm" selected>Arcángel (Masculino)</option>
-                            <option value="/models/ArcaXplore-F.vrm">Arcángel (Femenino)</option>
+                          <span>🧑 Agente Virtual Ariel</span>
+                          <select id="avatarSelector" title="Elige la versión del avatar" aria-label="Versión del avatar" style="background: #111827; color: white; border: 1px solid #6b7280; border-radius: 4px; padding: 4px 8px; font-size: 12px; cursor: pointer; outline: none; max-width: 170px;">
+                            <option value="/models/ArcaXplore-F.vrm" selected>Ariel (Femenino)</option>
+                            <option value="/models/ArcaXplore-M.vrm">Ariel (Masculino)</option>
                           </select>
                         </header>
                         <div class="avatar-body">
@@ -270,6 +391,10 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                               </svg>
                             </button>
                             <span id="avatar-mic-status">Pulsa para hablar</span>
+                          </div>
+                          <div id="avatar-tts-controls">
+                            <button id="btn-avatar-pause" type="button" class="avatar-tts-btn" title="Pausar la voz" aria-label="Pausar la voz de Ariel">⏸</button>
+                            <button id="btn-avatar-stop" type="button" class="avatar-tts-btn" title="Detener la voz" aria-label="Detener la voz de Ariel">■</button>
                           </div>
                           <button id="btn-toggle-chat" type="button" title="Mostrar/ocultar chat" aria-label="Mostrar/ocultar chat"><span id="btn-toggle-chat-label">💬 Conversar por texto</span></button>
                         </div>
@@ -287,7 +412,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                           </div>
                         </header>
                         <main class="chat-body" id="chatBody">
-                          <div class="msg ai">Hola, soy Arcángel. Pregúntame sobre el documento de la izquierda.</div>
+                          <div class="msg ai">${_greetingText}</div>
                         </main>
                         <footer class="chat-footer" id="chat-footer">
                           <div class="k-hstack k-gap-2">
@@ -356,6 +481,14 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             // FAB de micrófono del avatar (Condición A): inicia/para la escucha
             $('#arcangelRagPanel').on('click', '#btn-avatar-mic', function () {
                 if (_sttHandle) _sttHandle.toggle();
+            });
+
+            // Controles de voz de Ariel (Condición A): pausar/reanudar y detener el TTS
+            $('#arcangelRagPanel').on('click', '#btn-avatar-pause', function () {
+                _togglePauseSpeech();
+            });
+            $('#arcangelRagPanel').on('click', '#btn-avatar-stop', function () {
+                _stopSpeech();
             });
 
             $('#arcangelRagPanel').on('change', '#avatarSelector', async function () {
@@ -438,10 +571,12 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             const chat   = document.getElementById('chat-wrap');
             const btnChat = document.getElementById('btn-toggle-chat');
             const micDock = document.getElementById('avatar-mic-dock');
+            const ttsCtrls = document.getElementById('avatar-tts-controls');
             if (!grid) return;
 
-            // El micrófono del avatar sólo existe en Condición A
+            // El micrófono y los controles de voz sólo existen en Condición A
             if (micDock) micDock.style.display = modoAVC ? 'flex' : 'none';
+            if (ttsCtrls) ttsCtrls.style.display = modoAVC ? 'flex' : 'none';
 
             if (!modoAVC) {
                 // Condición B — Textual
@@ -549,10 +684,46 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                 if (_sttHandle) _sttHandle.stop();
                 fab.setAttribute('disabled', 'disabled');
                 if (statusEl) statusEl.textContent = '🔊 Hablando…';
+                _ttsPaused = false;
+                _updatePauseBtn();
             } else {
                 fab.removeAttribute('disabled');
                 if (statusEl) statusEl.textContent = 'Pulsa para hablar';
+                _ttsPaused = false;
+                _updatePauseBtn();
             }
+        }
+
+        // ===== Controles de voz de Ariel (pausar / reanudar / detener el TTS) =====
+        function _updatePauseBtn() {
+            const btn = document.getElementById('btn-avatar-pause');
+            if (!btn) return;
+            btn.textContent = _ttsPaused ? '▶' : '⏸';
+            btn.title = _ttsPaused ? 'Reanudar la voz' : 'Pausar la voz';
+            btn.setAttribute('aria-label', _ttsPaused ? 'Reanudar la voz de Ariel' : 'Pausar la voz de Ariel');
+        }
+
+        function _togglePauseSpeech() {
+            const synth = window.speechSynthesis;
+            const tts = _getTTS();
+            if (!synth || !tts) return;
+            if (synth.paused) {
+                tts.resume();
+                _ttsPaused = false;
+            } else if (synth.speaking) {
+                tts.pause();
+                _ttsPaused = true;
+            }
+            _updatePauseBtn();
+        }
+
+        function _stopSpeech() {
+            const tts = _getTTS();
+            if (tts) tts.stop();
+            _ttsPaused = false;
+            _updatePauseBtn();
+            // La locución terminó: reactivar el micrófono del avatar.
+            _setAvatarMicSpeaking(false);
         }
 
         function configureSTT() {
@@ -678,7 +849,7 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                 _avatarController = new AvatarController();
                 _avatarController.init(canvas);
 
-                await _avatarController.loadModel('/models/ArcaXplore-M.vrm');
+                await _avatarController.loadModel(_selectedAvatarUrl);
                 console.log('[RAG] Agente Virtual 3D inicializado con éxito');
             } catch (e) {
                 console.error('[RAG] Fallo al inicializar el Avatar 3D:', e);
@@ -724,6 +895,9 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
             _getTTS();
 
             _initAvatarCanvas();
+
+            // En modo Avatar (Condición A), Ariel saluda en voz alta al arrancar.
+            if (_modoConversacional) _armGreetingSpeech();
         }
 
         // ===== Chat RAG básico =====
@@ -809,7 +983,8 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                 window.tts = window.arcaTTSController.create({
                     target: '#summarizerResult',
                     floating: true,
-                    theme: 'dark'
+                    theme: 'dark',
+                    autoShowOnSpeak: false   // Tarea 1: no mostrar la barra .arca-tts-header al hablar Ariel
                 });
             }
             return window.tts;
@@ -844,7 +1019,6 @@ window.arcangelRAGLoader = (jQuery, kendo) => {
                 return;
             }
 
-            tts.show();
             tts.speak(msgText, _voiceOptsForAvatar(_selectedAvatarUrl));
 
             $btn.attr("aria-pressed", "true")
