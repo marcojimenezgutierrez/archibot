@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+ <LimeSurveyDocType>Survey</LimeSurveyDocType>
+ <DBVersion>480</DBVersion>
+ <languages>
+  <language>es</language>
+ </languages>
+ <surveys>
+  <fields>
+   <fieldname>sid</fieldname>
+   <fieldname>gsid</fieldname>
+   <fieldname>admin</fieldname>
+   <fieldname>active</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>additional_languages</fieldname>
+   <fieldname>anonymized</fieldname>
+   <fieldname>format</fieldname>
+   <fieldname>savetimings</fieldname>
+   <fieldname>datestamp</fieldname>
+   <fieldname>usecookie</fieldname>
+   <fieldname>allowregister</fieldname>
+   <fieldname>allowsave</fieldname>
+   <fieldname>autonumber_start</fieldname>
+   <fieldname>autoredirect</fieldname>
+   <fieldname>allowprev</fieldname>
+   <fieldname>printanswers</fieldname>
+   <fieldname>publicstatistics</fieldname>
+   <fieldname>publicgraphs</fieldname>
+   <fieldname>listpublic</fieldname>
+   <fieldname>htmlemail</fieldname>
+   <fieldname>sendconfirmation</fieldname>
+   <fieldname>tokenanswerspersistence</fieldname>
+   <fieldname>assessments</fieldname>
+   <fieldname>usecaptcha</fieldname>
+   <fieldname>usetokens</fieldname>
+   <fieldname>showxquestions</fieldname>
+   <fieldname>shownoanswer</fieldname>
+   <fieldname>showprogress</fieldname>
+   <fieldname>questionindex</fieldname>
+   <fieldname>navigationdelay</fieldname>
+   <fieldname>nokeyboard</fieldname>
+   <fieldname>alloweditaftercompletion</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <sid><![CDATA[197533]]></sid>
+    <gsid><![CDATA[1]]></gsid>
+    <admin><![CDATA[Marco Jimenez]]></admin>
+    <active><![CDATA[N]]></active>
+    <language><![CDATA[es]]></language>
+    <additional_languages><![CDATA[]]></additional_languages>
+    <anonymized><![CDATA[N]]></anonymized>
+    <format><![CDATA[S]]></format>
+    <savetimings><![CDATA[N]]></savetimings>
+    <datestamp><![CDATA[N]]></datestamp>
+    <usecookie><![CDATA[N]]></usecookie>
+    <allowregister><![CDATA[N]]></allowregister>
+    <allowsave><![CDATA[Y]]></allowsave>
+    <autonumber_start><![CDATA[0]]></autonumber_start>
+    <autoredirect><![CDATA[N]]></autoredirect>
+    <allowprev><![CDATA[N]]></allowprev>
+    <printanswers><![CDATA[N]]></printanswers>
+    <publicstatistics><![CDATA[N]]></publicstatistics>
+    <publicgraphs><![CDATA[N]]></publicgraphs>
+    <listpublic><![CDATA[N]]></listpublic>
+    <htmlemail><![CDATA[Y]]></htmlemail>
+    <sendconfirmation><![CDATA[Y]]></sendconfirmation>
+    <tokenanswerspersistence><![CDATA[N]]></tokenanswerspersistence>
+    <assessments><![CDATA[N]]></assessments>
+    <usecaptcha><![CDATA[N]]></usecaptcha>
+    <usetokens><![CDATA[N]]></usetokens>
+    <showxquestions><![CDATA[Y]]></showxquestions>
+    <shownoanswer><![CDATA[Y]]></shownoanswer>
+    <showprogress><![CDATA[Y]]></showprogress>
+    <questionindex><![CDATA[0]]></questionindex>
+    <navigationdelay><![CDATA[0]]></navigationdelay>
+    <nokeyboard><![CDATA[N]]></nokeyboard>
+    <alloweditaftercompletion><![CDATA[N]]></alloweditaftercompletion>
+   </row>
+  </rows>
+ </surveys>
+ <surveys_languagesettings>
+  <fields>
+   <fieldname>surveyls_survey_id</fieldname>
+   <fieldname>surveyls_language</fieldname>
+   <fieldname>surveyls_title</fieldname>
+   <fieldname>surveyls_description</fieldname>
+   <fieldname>surveyls_welcometext</fieldname>
+   <fieldname>surveyls_endtext</fieldname>
+   <fieldname>surveyls_dateformat</fieldname>
+   <fieldname>surveyls_numberformat</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <surveyls_survey_id><![CDATA[197533]]></surveyls_survey_id>
+    <surveyls_language><![CDATA[es]]></surveyls_language>
+    <surveyls_title><![CDATA[PF-3311.001-ARIEL-Retención]]></surveyls_title>
+    <surveyls_description><![CDATA[Cuestionario de retención de información (post-tarea T3). Una sola respuesta correcta por ítem.]]></surveyls_description>
+    <surveyls_welcometext><![CDATA[<p>Por favor responda las siguientes preguntas <strong>sin consultar el sistema</strong>, según lo que recuerde de las respuestas que recibió. Hay una sola opción correcta por pregunta.</p>]]></surveyls_welcometext>
+    <surveyls_endtext><![CDATA[<p>Gracias por su participación.</p>]]></surveyls_endtext>
+    <surveyls_dateformat><![CDATA[5]]></surveyls_dateformat>
+    <surveyls_numberformat><![CDATA[1]]></surveyls_numberformat>
+   </row>
+  </rows>
+ </surveys_languagesettings>
+ <groups>
+  <fields>
+   <fieldname>gid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>group_order</fieldname>
+   <fieldname>randomization_group</fieldname>
+   <fieldname>grelevance</fieldname>
+  </fields>
+  <rows>
+   <row><gid><![CDATA[2]]></gid><sid><![CDATA[197533]]></sid><group_order><![CDATA[0]]></group_order><randomization_group><![CDATA[]]></randomization_group><grelevance><![CDATA[1]]></grelevance></row>
+   <row><gid><![CDATA[1]]></gid><sid><![CDATA[197533]]></sid><group_order><![CDATA[1]]></group_order><randomization_group><![CDATA[]]></randomization_group><grelevance><![CDATA[1]]></grelevance></row>
+  </rows>
+ </groups>
+ <group_l10ns>
+  <fields>
+   <fieldname>id</fieldname>
+   <fieldname>gid</fieldname>
+   <fieldname>group_name</fieldname>
+   <fieldname>description</fieldname>
+   <fieldname>language</fieldname>
+  </fields>
+  <rows>
+   <row><id><![CDATA[2]]></id><gid><![CDATA[2]]></gid><group_name><![CDATA[Identificación]]></group_name><description><![CDATA[]]></description><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[1]]></id><gid><![CDATA[1]]></gid><group_name><![CDATA[Retención de información]]></group_name><description><![CDATA[]]></description><language><![CDATA[es]]></language></row>
+  </rows>
+ </group_l10ns>
+ <questions>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>parent_qid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>gid</fieldname>
+   <fieldname>type</fieldname>
+   <fieldname>title</fieldname>
+   <fieldname>preg</fieldname>
+   <fieldname>other</fieldname>
+   <fieldname>mandatory</fieldname>
+   <fieldname>encrypted</fieldname>
+   <fieldname>question_order</fieldname>
+   <fieldname>scale_id</fieldname>
+   <fieldname>same_default</fieldname>
+   <fieldname>relevance</fieldname>
+   <fieldname>question_theme_name</fieldname>
+   <fieldname>modulename</fieldname>
+   <fieldname>same_script</fieldname>
+  </fields>
+  <rows>
+   <row><qid><![CDATA[2]]></qid><parent_qid><![CDATA[0]]></parent_qid><sid><![CDATA[197533]]></sid><gid><![CDATA[2]]></gid><type><![CDATA[S]]></type><title><![CDATA[PCODE]]></title><preg><![CDATA[]]></preg><other><![CDATA[N]]></other><mandatory><![CDATA[Y]]></mandatory><encrypted><![CDATA[N]]></encrypted><question_order><![CDATA[1]]></question_order><scale_id><![CDATA[0]]></scale_id><same_default><![CDATA[0]]></same_default><relevance><![CDATA[1]]></relevance><question_theme_name><![CDATA[shortfreetext]]></question_theme_name><modulename><![CDATA[]]></modulename><same_script><![CDATA[0]]></same_script></row>
+   <row><qid><![CDATA[3]]></qid><parent_qid><![CDATA[0]]></parent_qid><sid><![CDATA[197533]]></sid><gid><![CDATA[2]]></gid><type><![CDATA[L]]></type><title><![CDATA[COND]]></title><preg><![CDATA[]]></preg><other><![CDATA[N]]></other><mandatory><![CDATA[Y]]></mandatory><encrypted><![CDATA[N]]></encrypted><question_order><![CDATA[2]]></question_order><scale_id><![CDATA[0]]></scale_id><same_default><![CDATA[0]]></same_default><relevance><![CDATA[1]]></relevance><question_theme_name><![CDATA[listradio]]></question_theme_name><modulename><![CDATA[]]></modulename><same_script><![CDATA[0]]></same_script></row>
+   <row><qid><![CDATA[10]]></qid><parent_qid><![CDATA[0]]></parent_qid><sid><![CDATA[197533]]></sid><gid><![CDATA[1]]></gid><type><![CDATA[L]]></type><title><![CDATA[RET1]]></title><preg><![CDATA[]]></preg><other><![CDATA[N]]></other><mandatory><![CDATA[Y]]></mandatory><encrypted><![CDATA[N]]></encrypted><question_order><![CDATA[1]]></question_order><scale_id><![CDATA[0]]></scale_id><same_default><![CDATA[0]]></same_default><relevance><![CDATA[1]]></relevance><question_theme_name><![CDATA[listradio]]></question_theme_name><modulename><![CDATA[]]></modulename><same_script><![CDATA[0]]></same_script></row>
+   <row><qid><![CDATA[20]]></qid><parent_qid><![CDATA[0]]></parent_qid><sid><![CDATA[197533]]></sid><gid><![CDATA[1]]></gid><type><![CDATA[L]]></type><title><![CDATA[RET2]]></title><preg><![CDATA[]]></preg><other><![CDATA[N]]></other><mandatory><![CDATA[Y]]></mandatory><encrypted><![CDATA[N]]></encrypted><question_order><![CDATA[2]]></question_order><scale_id><![CDATA[0]]></scale_id><same_default><![CDATA[0]]></same_default><relevance><![CDATA[1]]></relevance><question_theme_name><![CDATA[listradio]]></question_theme_name><modulename><![CDATA[]]></modulename><same_script><![CDATA[0]]></same_script></row>
+   <row><qid><![CDATA[30]]></qid><parent_qid><![CDATA[0]]></parent_qid><sid><![CDATA[197533]]></sid><gid><![CDATA[1]]></gid><type><![CDATA[L]]></type><title><![CDATA[RET3]]></title><preg><![CDATA[]]></preg><other><![CDATA[N]]></other><mandatory><![CDATA[Y]]></mandatory><encrypted><![CDATA[N]]></encrypted><question_order><![CDATA[3]]></question_order><scale_id><![CDATA[0]]></scale_id><same_default><![CDATA[0]]></same_default><relevance><![CDATA[1]]></relevance><question_theme_name><![CDATA[listradio]]></question_theme_name><modulename><![CDATA[]]></modulename><same_script><![CDATA[0]]></same_script></row>
+  </rows>
+ </questions>
+ <question_l10ns>
+  <fields>
+   <fieldname>id</fieldname>
+   <fieldname>qid</fieldname>
+   <fieldname>question</fieldname>
+   <fieldname>help</fieldname>
+   <fieldname>script</fieldname>
+   <fieldname>language</fieldname>
+  </fields>
+  <rows>
+   <row><id><![CDATA[2]]></id><qid><![CDATA[2]]></qid><question><![CDATA[Código de participante]]></question><help><![CDATA[Ingrese el código asignado por el evaluador.]]></help><script><![CDATA[]]></script><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[3]]></id><qid><![CDATA[3]]></qid><question><![CDATA[Condición experimental asignada]]></question><help><![CDATA[A completar por el evaluador.]]></help><script><![CDATA[]]></script><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[10]]></id><qid><![CDATA[10]]></qid><question><![CDATA[Según la información que le proporcionó el sistema, ¿cuánto vale económicamente una hora asistente de posgrado en relación con una hora estudiante?]]></question><help><![CDATA[]]></help><script><![CDATA[]]></script><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[20]]></id><qid><![CDATA[20]]></qid><question><![CDATA[Según la información que le proporcionó el sistema, ¿cuál es la nota mínima para aprobar un curso en la Universidad de Costa Rica?]]></question><help><![CDATA[]]></help><script><![CDATA[]]></script><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[30]]></id><qid><![CDATA[30]]></qid><question><![CDATA[Según la información que le proporcionó el sistema, ¿cuántos estudiantes debe tener como mínimo un proyecto de Trabajo Comunal Universitario (TCU)?]]></question><help><![CDATA[]]></help><script><![CDATA[]]></script><language><![CDATA[es]]></language></row>
+  </rows>
+ </question_l10ns>
+ <answers>
+  <fields>
+   <fieldname>aid</fieldname>
+   <fieldname>qid</fieldname>
+   <fieldname>code</fieldname>
+   <fieldname>sortorder</fieldname>
+   <fieldname>assessment_value</fieldname>
+   <fieldname>scale_id</fieldname>
+  </fields>
+  <rows>
+   <row><aid><![CDATA[1]]></aid><qid><![CDATA[3]]></qid><code><![CDATA[A]]></code><sortorder><![CDATA[0]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[2]]></aid><qid><![CDATA[3]]></qid><code><![CDATA[B]]></code><sortorder><![CDATA[1]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[3]]></aid><qid><![CDATA[10]]></qid><code><![CDATA[A]]></code><sortorder><![CDATA[0]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[4]]></aid><qid><![CDATA[10]]></qid><code><![CDATA[B]]></code><sortorder><![CDATA[1]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[5]]></aid><qid><![CDATA[10]]></qid><code><![CDATA[C]]></code><sortorder><![CDATA[2]]></sortorder><assessment_value><![CDATA[1]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[6]]></aid><qid><![CDATA[10]]></qid><code><![CDATA[D]]></code><sortorder><![CDATA[3]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[7]]></aid><qid><![CDATA[20]]></qid><code><![CDATA[A]]></code><sortorder><![CDATA[0]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[8]]></aid><qid><![CDATA[20]]></qid><code><![CDATA[B]]></code><sortorder><![CDATA[1]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[9]]></aid><qid><![CDATA[20]]></qid><code><![CDATA[C]]></code><sortorder><![CDATA[2]]></sortorder><assessment_value><![CDATA[1]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[10]]></aid><qid><![CDATA[20]]></qid><code><![CDATA[D]]></code><sortorder><![CDATA[3]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[11]]></aid><qid><![CDATA[30]]></qid><code><![CDATA[A]]></code><sortorder><![CDATA[0]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[12]]></aid><qid><![CDATA[30]]></qid><code><![CDATA[B]]></code><sortorder><![CDATA[1]]></sortorder><assessment_value><![CDATA[1]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[13]]></aid><qid><![CDATA[30]]></qid><code><![CDATA[C]]></code><sortorder><![CDATA[2]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+   <row><aid><![CDATA[14]]></aid><qid><![CDATA[30]]></qid><code><![CDATA[D]]></code><sortorder><![CDATA[3]]></sortorder><assessment_value><![CDATA[0]]></assessment_value><scale_id><![CDATA[0]]></scale_id></row>
+  </rows>
+ </answers>
+ <answer_l10ns>
+  <fields>
+   <fieldname>id</fieldname>
+   <fieldname>aid</fieldname>
+   <fieldname>answer</fieldname>
+   <fieldname>language</fieldname>
+  </fields>
+  <rows>
+   <row><id><![CDATA[1]]></id><aid><![CDATA[1]]></aid><answer><![CDATA[A – Agente virtual corporizado (AVC)]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[2]]></id><aid><![CDATA[2]]></aid><answer><![CDATA[B – Interfaz textual]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[3]]></id><aid><![CDATA[3]]></aid><answer><![CDATA[Es igual al valor de la hora estudiante]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[4]]></id><aid><![CDATA[4]]></aid><answer><![CDATA[Es el doble del valor de la hora estudiante]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[5]]></id><aid><![CDATA[5]]></aid><answer><![CDATA[Es el triple del valor de la hora estudiante]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[6]]></id><aid><![CDATA[6]]></aid><answer><![CDATA[Es cuatro veces el valor de la hora estudiante]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[7]]></id><aid><![CDATA[7]]></aid><answer><![CDATA[6,0]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[8]]></id><aid><![CDATA[8]]></aid><answer><![CDATA[6,5]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[9]]></id><aid><![CDATA[9]]></aid><answer><![CDATA[7,0]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[10]]></id><aid><![CDATA[10]]></aid><answer><![CDATA[7,5]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[11]]></id><aid><![CDATA[11]]></aid><answer><![CDATA[5 estudiantes]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[12]]></id><aid><![CDATA[12]]></aid><answer><![CDATA[8 estudiantes]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[13]]></id><aid><![CDATA[13]]></aid><answer><![CDATA[10 estudiantes]]></answer><language><![CDATA[es]]></language></row>
+   <row><id><![CDATA[14]]></id><aid><![CDATA[14]]></aid><answer><![CDATA[15 estudiantes]]></answer><language><![CDATA[es]]></language></row>
+  </rows>
+ </answer_l10ns>
+ <question_attributes>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>attribute</fieldname>
+   <fieldname>value</fieldname>
+  </fields>
+  <rows>
+   <row><qid><![CDATA[10]]></qid><attribute><![CDATA[random_order]]></attribute><value><![CDATA[0]]></value></row>
+   <row><qid><![CDATA[20]]></qid><attribute><![CDATA[random_order]]></attribute><value><![CDATA[0]]></value></row>
+   <row><qid><![CDATA[30]]></qid><attribute><![CDATA[random_order]]></attribute><value><![CDATA[0]]></value></row>
+  </rows>
+ </question_attributes>
+</document>

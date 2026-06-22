@@ -1,0 +1,447 @@
+======================================================================
+GUÍA DE PARTICIPANTES — ESTUDIO Ariel (PF-3311)
+Uso interno del investigador. Abajo hay 8 mensajes listos para copiar
+y pegar en WhatsApp, uno por participante.
+======================================================================
+
+TABLA DE ASIGNACIÓN
+----------------------------------------------------------------------
+ID         Condición    Opción   Agente
+----------------------------------------------------------------------
+CVA-01     AVC (visual+voz) A        https://ariel-cva.web.app/?type=CVA
+CVA-02     AVC (visual+voz) A        https://ariel-cva.web.app/?type=CVA
+CVA-03     AVC (visual+voz) A        https://ariel-cva.web.app/?type=CVA
+CVA-04     AVC (visual+voz) A        https://ariel-cva.web.app/?type=CVA
+TXT-01     Textual      B        https://ariel-cva.web.app/?type=TEXT
+TXT-02     Textual      B        https://ariel-cva.web.app/?type=TEXT
+TXT-03     Textual      B        https://ariel-cva.web.app/?type=TEXT
+TXT-04     Textual      B        https://ariel-cva.web.app/?type=TEXT
+----------------------------------------------------------------------
+Condición A = Agente Virtual Corporizado (CVA) | B = Interfaz Textual (TEXT)
+
+
+######################################################################
+# MENSAJE 1 de 8  —  Enviar a participante CVA-01  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): CVA-01
+Tu condición: opción A
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente virtual
+Abre este enlace en una computadora con sonido (usa audífonos si puedes) y permite el uso del micrófono/altavoz si el navegador lo solicita:
+https://ariel-cva.web.app/?type=CVA
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: CVA-01
+   • Condición: opción A
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: CVA-01
+   • Condición: opción A
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: CVA-01
+   • Condición: opción A
+
+IMPORTANTE
+• Usa el mismo ID (CVA-01) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 2 de 8  —  Enviar a participante CVA-02  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): CVA-02
+Tu condición: opción A
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente virtual
+Abre este enlace en una computadora con sonido (usa audífonos si puedes) y permite el uso del micrófono/altavoz si el navegador lo solicita:
+https://ariel-cva.web.app/?type=CVA
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: CVA-02
+   • Condición: opción A
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: CVA-02
+   • Condición: opción A
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: CVA-02
+   • Condición: opción A
+
+IMPORTANTE
+• Usa el mismo ID (CVA-02) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 3 de 8  —  Enviar a participante CVA-03  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): CVA-03
+Tu condición: opción A
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente virtual
+Abre este enlace en una computadora con sonido (usa audífonos si puedes) y permite el uso del micrófono/altavoz si el navegador lo solicita:
+https://ariel-cva.web.app/?type=CVA
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: CVA-03
+   • Condición: opción A
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: CVA-03
+   • Condición: opción A
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: CVA-03
+   • Condición: opción A
+
+IMPORTANTE
+• Usa el mismo ID (CVA-03) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 4 de 8  —  Enviar a participante CVA-04  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): CVA-04
+Tu condición: opción A
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente virtual
+Abre este enlace en una computadora con sonido (usa audífonos si puedes) y permite el uso del micrófono/altavoz si el navegador lo solicita:
+https://ariel-cva.web.app/?type=CVA
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: CVA-04
+   • Condición: opción A
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: CVA-04
+   • Condición: opción A
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: CVA-04
+   • Condición: opción A
+
+IMPORTANTE
+• Usa el mismo ID (CVA-04) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 5 de 8  —  Enviar a participante TXT-01  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): TXT-01
+Tu condición: opción B
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente
+Abre este enlace en tu computadora:
+https://ariel-cva.web.app/?type=TEXT
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: TXT-01
+   • Condición: opción B
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: TXT-01
+   • Condición: opción B
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: TXT-01
+   • Condición: opción B
+
+IMPORTANTE
+• Usa el mismo ID (TXT-01) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 6 de 8  —  Enviar a participante TXT-02  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): TXT-02
+Tu condición: opción B
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente
+Abre este enlace en tu computadora:
+https://ariel-cva.web.app/?type=TEXT
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: TXT-02
+   • Condición: opción B
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: TXT-02
+   • Condición: opción B
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: TXT-02
+   • Condición: opción B
+
+IMPORTANTE
+• Usa el mismo ID (TXT-02) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 7 de 8  —  Enviar a participante TXT-03  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): TXT-03
+Tu condición: opción B
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente
+Abre este enlace en tu computadora:
+https://ariel-cva.web.app/?type=TEXT
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: TXT-03
+   • Condición: opción B
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: TXT-03
+   • Condición: opción B
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: TXT-03
+   • Condición: opción B
+
+IMPORTANTE
+• Usa el mismo ID (TXT-03) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+######################################################################
+# MENSAJE 8 de 8  —  Enviar a participante TXT-04  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): TXT-04
+Tu condición: opción B
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente
+Abre este enlace en tu computadora:
+https://ariel-cva.web.app/?type=TEXT
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: TXT-04
+   • Condición: opción B
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: TXT-04
+   • Condición: opción B
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: TXT-04
+   • Condición: opción B
+
+IMPORTANTE
+• Usa el mismo ID (TXT-04) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
+
+
+######################################################################
+# MENSAJE 8 de 8  —  Enviar a participante TXT-05  (NO incluir esta línea)
+######################################################################
+
+Hola, ¡gracias por participar en el estudio de Ariel!
+
+Te tomará unos 15–20 minutos. Por favor sigue los pasos EN ORDEN.
+
+Tu identificador (ID): TXT-05
+Tu condición: opción B
+(Usarás SIEMPRE el mismo ID y la misma condición en los tres formularios.)
+
+PASO 1 — Abre el agente
+Abre este enlace en tu computadora:
+https://ariel-cva.web.app/?type=TEXT
+
+PASO 2 — Primera consulta + formulario de Confianza
+Haz esta consulta al agente:
+"Soy estudiante de posgrado activo. ¿Puedo ser designado en horas asistente de posgrado si tengo una nota de Incompleto (IN) en un curso de investigación? ¿Cuál es el promedio mínimo que necesito?"
+Cuando recibas la respuesta, completa este formulario (TiA):
+https://encuestas.citic.ucr.ac.cr/index.php/197531?lang=es
+   • Código de participante: TXT-05
+   • Condición: opción B
+
+PASO 3 — Segunda consulta + formulario Godspeed
+Haz esta consulta al agente:
+"Soy estudiante de bachillerato y quiero hacer horas asistente al mismo tiempo que realizo mi TCU. ¿Puedo hacerlo? ¿Hay algún límite de horas combinadas que deba respetar? ¿Cuántas horas de TCU debo cumplir en total?"
+Cuando recibas la respuesta, completa este formulario (Godspeed):
+https://encuestas.citic.ucr.ac.cr/index.php/197532?lang=es
+   • Código de participante: TXT-05
+   • Condición: opción B
+
+PASO 4 — Tercera consulta + formulario de Usabilidad
+Haz esta consulta al agente:
+"¿Cuánto gana por hora una persona en horas asistente de posgrado en comparación con una en horas estudiante? ¿Cuál es la nota mínima para aprobar un curso en la UCR? ¿Cuántos estudiantes debe tener como mínimo un proyecto de TCU?"
+Cuando recibas la respuesta, completa este formulario (SUS):
+https://encuestas.citic.ucr.ac.cr/index.php/396755?lang=es
+   • ID: TXT-05
+   • Condición: opción B
+
+IMPORTANTE
+• Usa el mismo ID (TXT-05) en los tres formularios.
+• Completa los tres formularios para que tu participación cuente.
+• Si algo no carga, recarga la página o escríbeme.
+¡Muchísimas gracias por tu ayuda!
+
+
