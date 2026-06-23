@@ -34,7 +34,8 @@ corporeal virtual agent (CVA) implemented with Three.js and @pixiv/three-vrm
 that acts as the front end of a RAG system for consulting document files in a
 document-management platform. Ariel communicates generated answers through
 synthesized speech and a 3D avatar with idle, listening and speaking
-animations, latency cues, and LLM-controlled emotional expressions. We report
+animations, latency cues, and emotional expressions controlled by a large language model
+(LLM). We report
 a between-subjects expert pilot ($N=8$) comparing the CVA (Condition~A)
 against an equivalent text-only interface (Condition~B) that shares an
 identical RAG and LLM back end, isolating the effect of embodiment. We measured
@@ -96,7 +97,8 @@ and on \emph{information retention}, compared with a text interface?
 \end{itemize}
 
 Our contribution is threefold: (i) the design and implementation of Ariel as a
-web-native CVA (Three.js + VRM) over a RAG back end; (ii) a controlled
+web-native CVA built with Three.js and the Virtual Reality Model (VRM) avatar
+format, over a RAG back end; (ii) a controlled
 between-subjects protocol that isolates embodiment; and (iii) empirical
 evidence---quantitative and qualitative---showing a dissociation between trust
 (improved by embodiment) and naturalness (degraded by low multimodal fidelity).
@@ -172,8 +174,9 @@ operation.
 
 \textbf{Front end.}
 The avatar is rendered with \textbf{Three.js} and \textbf{@pixiv/three-vrm},
-loading VRM models in the browser without an external game engine; this removes
-the need for a Unity build and improves reproducibility. The
+loading VRM avatars (a glTF-based humanoid-avatar format) directly in the
+browser, with no external game engine; this removes the need for a Unity build
+and improves reproducibility. The
 \texttt{AvatarController} manages dynamic VRM loading with runtime model
 swapping, a natural rest pose (arms lowered, head toward camera) applied from
 the default T-pose, and procedural idle animations (sinusoidal breathing,
@@ -200,12 +203,12 @@ returning text plus an emotion-action metadatum that the controller interprets.
     \label{fig:screenshot}
 \end{figure}
 \textbf{Speech and experimental toggle.}
-Audible narration uses the \textbf{Web Speech API}, removing external TTS
-dependencies and reducing latency; \emph{thinking} animations cover retrieval
+Audible narration uses the \textbf{Web Speech API}, removing external
+text-to-speech (TTS) dependencies and reducing latency; \emph{thinking} animations cover retrieval
 and generation latency \cite{jolibois2025,elfleet2024}. A
 \textbf{``Conversational Mode'' toggle} switches the system between the two
 experimental conditions without reloading, simultaneously controlling avatar
-visibility, grid layout, automatic TTS and STT. In Condition~B (text) the layout
+visibility, grid layout, automatic TTS and speech-to-text (STT). In Condition~B (text) the layout
 is \texttt{PDF~80\%~/~Chat~20\%}; in Condition~A (CVA) it is
 \texttt{PDF~65\%~/~Avatar~35\%}, expanding to include a collapsible chat when
 requested. The retrieval and generation engine is \emph{identical} in both
