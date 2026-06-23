@@ -185,10 +185,11 @@ during speech. The LLM can invoke emotional expressions (happy, sad, neutral,
 surprised, relaxed, angry) mapped to VRM expressions with smooth interpolation.
 
 \textbf{Back end.}
-A secure intermediary (ASP.NET) processes each query in three stages:
+A secure intermediary (Node/Express locally, deployed as Firebase Cloud
+Functions in production) processes each query in three stages:
 (1)~\emph{retrieval} via semantic search over the active file's vector store;
 (2)~\emph{generation}, integrating retrieved fragments as context for the LLM
-(OpenAI GPT-4o) together with behavior instructions; and (3)~\emph{response},
+(OpenAI GPT-4.1-nano) together with behavior instructions; and (3)~\emph{response},
 returning text plus an emotion-action metadatum that the controller interprets.
 \begin{figure}[t]
     \centering
@@ -222,9 +223,9 @@ communicative modality.
 \node[box, fill=green!8, below=7mm of app] (toggle) {Conversational Mode\\(layout, TTS, STT)};
 \node[box, fill=orange!10, left=8mm of toggle] (avatar) {AvatarController\\Three.js + VRM};
 \node[box, fill=orange!10, below=6mm of avatar] (tts) {Web Speech API\\sim.\ lip~sync};
-\node[box, fill=red!8, below=7mm of toggle] (back) {ASP.NET RAG\\Controller};
+\node[box, fill=red!8, below=7mm of toggle] (back) {Node/Express RAG\\(Firebase Functions)};
 \node[box, fill=red!8, below left=6mm and -2mm of back] (vec) {Vector Store\\(file RAG)};
-\node[box, fill=red!8, below right=6mm and -2mm of back] (llm) {GPT-4o\\(gen.\ + emotion)};
+\node[box, fill=red!8, below right=6mm and -2mm of back] (llm) {GPT-4.1-nano\\(gen.\ + emotion)};
 \draw[<->] (user) -- (app);
 \draw[->] (app) -- (toggle);
 \draw[->] (toggle) -- (avatar);
