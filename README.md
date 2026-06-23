@@ -24,9 +24,12 @@ El estudio se organiza en torno a tres preguntas de investigación:
 
 ## Enlaces de la entrega
 
-- 🎥 **Video de demostración (~5 min, YouTube no listado):** `‹INSERTAR ENLACE AQUÍ›`
+- 🎥 **Video de demostración (~5 min, YouTube no listado):** `[‹Video›](https://youtu.be/O4vrTsIRgmk)`
 - 📄 **Artículo (PDF, formato IEEE):** [`docs/Entregable 3/Ariel_Paper_LaTeX/main.pdf`](docs/Entregable%203/Ariel_Paper_LaTeX/main.pdf)
 - 📊 **Presentación:** [`docs/Entregable 3/Ariel_Presentacion.pptx`](docs/Entregable%203/Ariel_Presentacion.pptx)
+- 📺 **URL de Agente:**  `https://ariel-cva.web.app/?type=CVA` `https://ariel-cva.web.app/?type=TEXT`
+
+
 
 ## Estructura del repositorio
 
