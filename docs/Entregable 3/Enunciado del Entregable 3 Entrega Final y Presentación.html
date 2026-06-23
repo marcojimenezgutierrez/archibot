@@ -1,0 +1,364 @@
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PF-3311 Agentes Virtuales Inteligentes - Entregable 3</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: letter portrait;
+      margin: 2.54cm;
+    }
+
+    body {
+      font-family: 'Calibri', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #000000;
+      background: #f0f0f0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===== PAGE CONTAINER ===== */
+    .page {
+      width: 21.59cm;   /* Letter width */
+      min-height: 27.94cm;
+      background: white;
+      margin: 1cm auto;
+      padding: 2.54cm;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+
+    @media print {
+      body { background: white; }
+      .page {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1 {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #2F5496; /* Word Document Style Blue */
+      margin-bottom: 6pt;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #2F5496;
+      margin-top: 18pt;
+      margin-bottom: 6pt;
+      border-bottom: 1px solid #2F5496;
+      padding-bottom: 2pt;
+    }
+
+    h3 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1F3763;
+      margin-top: 14pt;
+      margin-bottom: 4pt;
+    }
+
+    h4 {
+      font-size: 11pt;
+      font-weight: bold;
+      font-style: italic;
+      color: #000000;
+      margin-top: 12pt;
+      margin-bottom: 4pt;
+    }
+
+    p {
+      margin-bottom: 10pt;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-top: 0;
+      margin-bottom: 10pt;
+      padding-left: 20pt;
+    }
+
+    li {
+      margin-bottom: 4pt;
+      text-align: justify;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1pt solid #D9D9D9;
+      margin: 14pt 0;
+    }
+
+    /* ===== QUOTES / HIGHLIGHTS ===== */
+    blockquote {
+      background: #F2F2F2;
+      border-left: 4pt solid #2F5496;
+      padding: 8pt 12pt;
+      margin: 12pt 0;
+      font-style: italic;
+    }
+
+    /* ===== TABLES ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12pt 0;
+      font-size: 10pt;
+    }
+
+    th, td {
+      border: 1pt solid #A6A6A6;
+      padding: 6pt 8pt;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background-color: #D9E2F3;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    tr:nth-child(even) {
+      background-color: #F2F2F2;
+    }
+
+    .meta-info {
+      font-weight: bold;
+      margin-bottom: 12pt;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <h1>PF-3311 Agentes Virtuales Inteligentes</h1>
+  <hr>
+
+  <h2>Enunciado del Entregable 3: Entrega Final y Presentación</h2>
+  <div class="meta-info">
+    <p><strong>V1.1</strong><br>
+    <strong>I Ciclo, 2026</strong></p>
+  </div>
+  <hr>
+
+  <h2>Descripción General</h2>
+  <p>El Entregable 3 constituye la culminación del proyecto de investigación del curso. Consiste en la presentación de un <strong>artículo académico (paper)</strong> que documenta el problema, los trabajos relacionados, el desarrollo del agente, los resultados del estudio con usuarios, el análisis y discusión de los datos recolectados, y las conclusiones derivadas. Este componente incluye una <strong>exhibición pública</strong> donde se realiza una presentación corta del agente y una defensa oral de los hallazgos. El proyecto es <strong>estrictamente individual</strong>.</p>
+  <p>Esta entrega final integra todo el trabajo realizado durante el semestre. Se espera que cada estudiante demuestre la capacidad de llevar un proyecto de investigación aplicada desde la concepción hasta la comunicación formal de hallazgos, siguiendo los estándares de la comunidad académica.</p>
+
+  <h2>¿Qué se espera?</h2>
+  <p>Cada estudiante deberá:</p>
+  <ol>
+    <li><strong>Completar el desarrollo del agente virtual</strong> hasta un estado funcional que permita realizar la evaluación planificada.</li>
+    <li><strong>Ejecutar el estudio de evaluación</strong> (piloto y/o evaluación con expertos) siguiendo el diseño metodológico del Entregable 2.</li>
+    <li><strong>Documentar todo el proceso</strong> en un artículo académico (paper), incluyendo:
+      <ul>
+        <li>El problema de investigación.</li>
+        <li>Los trabajos relacionados.</li>
+        <li>El desarrollo del agente.</li>
+        <li>Los resultados del estudio con usuarios.</li>
+        <li>El análisis y discusión de los datos recolectados.</li>
+        <li>Las conclusiones derivadas.</li>
+      </ul>
+    </li>
+    <li><strong>Realizar una exhibición pública</strong> con una presentación académica corta, demostración del agente y defensa oral de los hallazgos.</li>
+    <li><strong>Participar en la coevaluación</strong> de los proyectos de sus compañeros de curso.</li>
+  </ol>
+
+  <h2>Entregables</h2>
+  <p>La entrega de documentos se realizará a través de Mediación Virtual antes de la fecha límite. La exhibición pública se realizará <strong>durante la sesión de clase de las Semanas 16 y 17</strong>.</p>
+
+  <h3>1. Artículo Académico (Paper) en formato PDF</h3>
+  <p>Un documento en formato PDF estructurado como un artículo de investigación. Se recomienda utilizar una plantilla de conferencia (ej. ACM, IEEE) en LaTeX (Overleaf) para luego exportar en PDF. El artículo debe contener las siguientes secciones:</p>
+
+  <h4>a) Título y Autores</h4>
+  <p>Título definitivo de la investigación, nombre del estudiante, afiliación (Universidad de Costa Rica, Escuela de Ciencias de la Computación e Informática).</p>
+
+  <h4>b) Abstract (~200-250 palabras)</h4>
+  <p>Resumen del artículo con resultados reales. Debe cubrir: contexto, sistema, metodología, resultados y conclusión.</p>
+
+  <h4>c) Introducción</h4>
+  <ul>
+    <li>Contexto y motivación del problema.</li>
+    <li>Breve resumen de la contribución.</li>
+    <li>Estructura del resto del artículo.</li>
+  </ul>
+
+  <h4>d) Trabajos Relacionados</h4>
+  <p>Revisión de literatura expandida (mínimo <strong>15 fuentes académicas</strong>). Debe presentar el estado del arte, identificar brechas y posicionar la contribución del trabajo.</p>
+
+  <h4>e) Desarrollo del Agente</h4>
+  <ul>
+    <li>Arquitectura del sistema (componentes, herramientas, decisiones de diseño).</li>
+    <li>Descripción de la implementación.</li>
+    <li>Capturas de pantalla o diagramas del sistema.</li>
+  </ul>
+
+  <h4>f) Metodología</h4>
+  <ul>
+    <li>Diseño del estudio de evaluación.</li>
+    <li>Participantes.</li>
+    <li>Instrumentos y métricas.</li>
+    <li>Protocolos de interacción.</li>
+    <li>Procedimiento de recolección de datos.</li>
+  </ul>
+
+  <h4>g) Resultados</h4>
+  <ul>
+    <li>Presentación objetiva de los datos recolectados.</li>
+    <li>Tablas, gráficos o visualizaciones que resuman los hallazgos.</li>
+    <li>Para datos cuantitativos: estadísticas descriptivas.</li>
+    <li>Para datos cualitativos: categorías emergentes, patrones observados.</li>
+  </ul>
+
+  <h4>h) Análisis y Discusión</h4>
+  <ul>
+    <li>Interpretación de los resultados en relación con las RQs (Preguntas de Investigación).</li>
+    <li>Comparación con hallazgos de la literatura revisada.</li>
+    <li>Limitaciones del estudio.</li>
+  </ul>
+
+  <h4>i) Conclusiones y Trabajo Futuro</h4>
+  <ul>
+    <li>Principales conclusiones derivadas de la evidencia.</li>
+    <li>Direcciones de trabajo futuro.</li>
+    <li><strong>Proyección de Publicación:</strong> DEBE declarar en la sección de conclusiones si se proyecta continuar con la ejecución del estudio y la recolección formal de datos (mediante el correspondiente sometimiento al Comité de Ética Científica, según corresponda) con miras a una publicación académica real a partir de este trabajo. Muy importante, indicar que NO se tiene proyectado realizarlo es completamente válido, y no penaliza en ninguna manera su calificación.</li>
+  </ul>
+
+  <h4>j) Referencias</h4>
+  <p>Todas las fuentes citadas en formato consistente (APA o IEEE).</p>
+
+  <h3>2. Agente Virtual Funcional</h3>
+  <p>El sistema completo, desplegable y funcional:</p>
+  <ul>
+    <li><strong>Código fuente</strong> organizado en el repositorio de GitHub.</li>
+    <li><strong>README.md</strong> completo con: descripción del proyecto, requisitos del sistema, instrucciones de instalación y ejecución, enlace al video y al artículo.</li>
+  </ul>
+
+  <h3>3. Video de Demostración Final (~5 minutos)</h3>
+  <p>Un video que muestre el agente en su versión final, incluyendo:</p>
+  <ul>
+    <li>Al menos <strong>dos escenarios completos</strong> de interacción (los escenarios pueden ser las dos comparativas, o dos corridas completas según su protocolo).</li>
+    <li>Evidencia de las capacidades técnicas del sistema.</li>
+  </ul>
+  <p><strong>Formato:</strong> Enlace "no listado" en YouTube, incluido en el README del repositorio.</p>
+
+  <h3>4. Exhibición Pública (durante la sesión de las Semanas 16 y 17)</h3>
+
+  <h4>a) Presentación Académica Corta y Defensa Oral (~10min)</h4>
+  <p>Una presentación que resuma visualmente el proyecto: problema, agente, metodología, resultados clave y conclusiones. Presentación del proyecto ante el grupo, el profesor y posibles evaluadores invitados. Se espera que el estudiante pueda responder preguntas sobre sus decisiones de diseño, metodología, resultados y limitaciones. La presentación debe incorporar la demostración funcional del agente (en vivo o mediante el video pregrabado).</p>
+
+  <h4>b) Coevaluación por Pares</h4>
+  <p>Los trabajos y las exposiciones serán coevaluados por los compañeros del curso utilizando un formulario de coevaluación provisto para este fin. Cada estudiante deberá evaluar de manera constructiva y objetiva el desempeño de sus pares.</p>
+
+  <hr>
+
+  <h2>Fecha de Entrega</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">Evento</th>
+        <th>Fecha y Medio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: bold;">Entrega de documentos</td>
+        <td>Lunes 22 de junio de 2026, 11:59 p.m.</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Exhibición pública</td>
+        <td>Martes 23 y 30 de junio de 2026 (durante la sesión de clase)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Medio</td>
+        <td>Mediación Virtual (enlace al repositorio de GitHub)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><em>Nota:</em> La mitad de los estudiantes presentará en modalidad virtual el Martes 23 de junio (Semana 16), y la otra mitad lo hará de forma presencial el Martes 30 de junio (Semana 17). La distribución de los grupos será coordinada y comunicada previamente por el profesor.</p>
+
+  <hr>
+
+  <h2>Evaluación</h2>
+  <p>El Entregable 3 tiene un valor del <strong>40%</strong> de la nota final del curso (PF-3311).</p>
+
+  <h3>Rúbrica</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th style="width: 15%;">Peso</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Artículo Académico (Paper)</strong></td>
+        <td>30%</td>
+        <td>Calidad del artículo académico: estructura, rigor, claridad, calidad de la revisión de literatura (mínimo 15 fuentes académicas) y coherencia entre secciones.</td>
+      </tr>
+      <tr>
+        <td><strong>Agente Funcional</strong></td>
+        <td>20%</td>
+        <td>Completitud y funcionalidad del sistema. ¿El agente sostiene una interacción coherente? ¿Se integran los componentes del stack?</td>
+      </tr>
+      <tr>
+        <td><strong>Estudio y Análisis de Datos</strong></td>
+        <td>20%</td>
+        <td>Rigor en la ejecución del estudio y en el análisis de los datos recolectados. ¿Se responden las RQs con evidencia?</td>
+      </tr>
+      <tr>
+        <td><strong>Exhibición y Defensa Oral</strong></td>
+        <td>15%</td>
+        <td>Calidad de la presentación corta. Capacidad de explicar su trabajo, defender decisiones y responder preguntas sobre el diseño, metodología y limitaciones.</td>
+      </tr>
+      <tr>
+        <td><strong>Coevaluación por Pares</strong></td>
+        <td>10%</td>
+        <td>Evaluación por parte de los compañeros respecto a la presentación oral y la calidad percibida del proyecto.</td>
+      </tr>
+      <tr>
+        <td><strong>Código y Documentación</strong></td>
+        <td>5%</td>
+        <td>Organización del código, README, instrucciones de reproducción, estructura de carpetas.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>Otras Consideraciones</h2>
+  <ul>
+    <li><strong>Originalidad:</strong> Es indispensable que los trabajos presentados sean originales y de autoría propia. En caso de que se sospeche que ha habido plagio en cualquiera de los productos entregables, se congelará la calificación final de todas las personas estudiantes involucradas con el objetivo de iniciar el procedimiento de disciplina correspondiente según es estipulado en el Reglamento de Orden y Disciplina de los Estudiantes de la Universidad de Costa Rica.</li>
+    <li><strong>Ortografía:</strong> Se rebajarán 0.25 puntos por cada falta de ortografía encontrada en los textos del artículo (paper) PDF.</li>
+    <li><strong>Asistencia a la exhibición:</strong> La asistencia a la exhibición pública (tanto en la sesión virtual como en la presencial) es <strong>obligatoria</strong>. No presentarse o no participar activamente en la coevaluación de sus compañeros implicará la pérdida de los componentes de Exhibición y Defensa Oral (15%) y Coevaluación por Pares (10%).</li>
+    <li><strong>Plazo del artículo vs. exhibición:</strong> El artículo y el repositorio deben estar listos antes de la fecha límite (lunes 22 de junio). La primera tanda de exhibiciones comienza al día siguiente (martes 23 de junio). No se aceptarán cambios al repositorio ni al artículo después del lunes 22 de junio a medianoche.</li>
+    <li><strong>Compatibilidad:</strong> Asegúrense de que el sistema sea reproducible. Si el profesor o los evaluadores no pueden ejecutar su agente, se verá reflejado en la nota.</li>
+    <li><strong>API Keys:</strong> NO suban API keys ni credenciales al repositorio.</li>
+    <li><strong>Datos de participantes:</strong> Si recolectan datos de personas, traten la información con confidencialidad. No incluyan datos personales identificables en el informe.</li>
+  </ul>
+</div>
+
+
+
+</body></html>

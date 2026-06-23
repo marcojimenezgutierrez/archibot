@@ -8,7 +8,7 @@ Desarrollar un prototipo de agente virtual inteligente que permita consultar inf
 
 El proyecto se enfoca en estudiar principalmente:
 
-- **RQ1:** Confianza percibida en la respuesta factual del sistema, comparando el Agente Virtual Corporizado (AVC) frente a una interfaz puramente textual.
+- **RQ1:** Confianza percibida en la respuesta factual del sistema, comparando el Agente Virtual Conversacional (AVC) frente a una interfaz puramente textual.
 - **RQ2:** Naturalidad percibida e inteligencia percibida del agente en tareas de síntesis documental extendida.
 - **RQ3:** Nivel de retención de información por parte del usuario y usabilidad general percibida (SUS).
 
@@ -16,41 +16,47 @@ El proyecto se enfoca en estudiar principalmente:
 
 ```text
 archibot/
-├── demo/
-│   └── Demostración de la funcionalidad del sistema (ejecutable tipo Mago de Oz).
-│
-├── src/
-│   └── Código fuente del prototipo frontend web y backend RAG, es privado.
-│
-└── docs/
-    └── Documentación del proyecto, diseño, metodología, instrumentos y resultados.
+├── demo/        Aplicación web del agente (avatar 3D, voz, chat, condiciones A/B del estudio).
+├── server/      Backend Node/Express con el RAG real (consulta al LLM sobre los documentos).
+├── functions/   Cloud Functions de Firebase que expone la misma API del RAG para el despliegue en producción.
+├── firebase.json  Configuración de Firebase Hosting + Functions para el despliegue.
+└── docs/        Documentación del proyecto: diseño, metodología, instrumentos y resultados del estudio.
 ```
 
 ## Carpetas principales
 
 ### `demo/`
 
-Se puede correr esta carpeta para demostrar la funcionalidad interactiva del agente en un formato de simulación tipo "Mago de Oz".
+Aplicación web autocontenida del agente conversacional 3D. Permite ver y probar el agente (avatar 3D, lectura de respuestas por voz, reconocimiento de voz) en sus dos condiciones de estudio:
 
-### `src/`
+- **Condición A — AVC:** avatar 3D visible, respuestas leídas en voz alta (TTS) con sincronización labial y expresiones, entrada por voz (STT).
+- **Condición B — Textual:** sin avatar, interacción solo por teclado y texto.
 
-El código del RAG es privado no se publicará acá, solamente la interación del VRM
+Ver [demo/README.md](demo/README.md) para instrucciones de ejecución.
+
+### `server/`
+
+Backend Node/Express que conecta el demo a un LLM real (OpenAI, con soporte opcional de Azure OpenAI) para resolver preguntas sobre los documentos del estudio. Ver [server/README.md](server/README.md) para detalles de configuración y despliegue.
+
+### `functions/`
+
+Cloud Functions de Firebase que reimplementa la API del RAG (`/api/rag`) para el despliegue en producción vía Firebase Hosting.
 
 ### `docs/`
 
-Contendrá la documentación académica y técnica del proyecto, incluyendo la descripción del problema, objetivos, preguntas de investigación, arquitectura técnica, metodología de evaluación, instrumentos de recolección de datos y resultados del estudio.
+Documentación académica y técnica del proyecto: descripción del problema, objetivos, preguntas de investigación, metodología de evaluación, instrumentos de recolección de datos y resultados del estudio.
 
 ## Tecnologías empleadas
 
-- **Frontend de renderizado:** Three.js + `@pixiv/three-vrm` (integrado en navegador web, eliminando dependencias de Unity).
-- **Pipeline RAG backend:** ASP.NET + Vector Store (Postgres + PGVector) + OpenAI GPT-4o para recuperación semántica y generación.
+- **Frontend de renderizado:** Three.js + `@pixiv/three-vrm` (integrado en navegador web).
+- **Pipeline RAG:** Node/Express (local) o Firebase Cloud Functions (producción) + OpenAI (GPT-4.1-nano por defecto, con soporte opcional de Azure OpenAI) para recuperación semántica y generación sobre contexto documental.
 - **Síntesis de voz (TTS):** Web Speech API (con *lip sync* simulado vía eventos de `SpeechSynthesisUtterance`).
-- **Reconocimiento de voz (STT):** Captura nativa web (ArcaSTTCapture).
-- **Integración:** Sistema empaquetado como módulo de la plataforma Arca.Xplore.
+- **Reconocimiento de voz (STT):** Web Speech API.
+- **Despliegue:** Firebase Hosting (frontend) + Firebase Cloud Functions (backend RAG).
 
 ## Estado del proyecto
 
-Prototipo funcional actualmente en operación. En preparación para estudio piloto con usuarios expertos.
+Prototipo funcional en operación, desplegado sobre Firebase Hosting y Cloud Functions. En etapa de estudio piloto con usuarios.
 
 ## Licencia
 
